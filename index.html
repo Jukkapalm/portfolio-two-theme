@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fi">
+    <head>
+        <!-- Perus meta tiedot -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portfolio</title>
+
+        <!-- Hakukoneille -->
+        <meta name="description" content="Tervetuloa portfoliosivustolleni. Täällä voit tutustua verkkosivustooni, koodausprojekteihin ja osaamiseeni.">
+        <meta name="author" content="Jukka Palm">
+
+        <!-- Fontit -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+        <!-- Bootstrap css -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Oma CSS -->
+        <link rel="stylesheet" href="css/tyylit.css">
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container-fluid px-4">
+
+                <!-- Navbar nimi/logo -->
+                <a class="navbar-brand" href="#">Jukka Palm</a>
+
+                <button class="theme-toggle-btn d-lg-none me-2" id="themeToggleMobile" aria-label="Vaihda teemaa">
+                    Duality
+                </button>
+
+                <!-- Hamburgermenu -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1 text-center">
+                        <li class="nav-item d-none d-lg-flex align-items-center">
+                            <button class="theme-toggle-btn" id="themeToggle" aria-label="Vaihda teemaa">
+                                Duality
+                            </button>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#minusta">Minusta</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#teknologiat">Teknologiat</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#projektit">Projektit</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#koulutus">Koulutus</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#building">Currently Building</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
