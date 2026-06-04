@@ -18,6 +18,7 @@ html, body {
     background-color: var(--navbar-bg);
 }
 
+/* Navbar nimi/logo */
 .navbar-brand {
     font-family: 'Chakra Petch', sans-serif;
     font-size: clamp(1.4rem, 2.7vw, 1.8rem);
@@ -25,20 +26,23 @@ html, body {
     letter-spacing: 0.05em;
     transition: color 0.3s ease;
     cursor: default;
+    font-weight: 500;
 }
 
+/* Navigaatio linkit */
 .navbar-nav .nav-link {
     color: var(--text-light) !important;
     font-size: clamp(0.85rem, 1.5vw, 1rem);
     padding-left: 1rem;
     padding-right: 1rem;
     transition: color 0.3s ease;
+    font-family: 'Chakra Petch', sans-serif;
 }
-
 .navbar-nav .nav-link:hover {
     color: var(--accent) !important;
 }
 
+/* Teemanvaihto button */
 .theme-toggle-btn {
     background: transparent;
     border: 1px solid var(--accent);
@@ -48,13 +52,35 @@ html, body {
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s ease;
+    font-family: 'Chakra Petch', sans-serif;
+    animation: pulse 2s ease-in-out infinite;
 }
 
+/* Hamburger menun asetukset */
 .navbar-toggler {
     border-color: var(--accent);
     font-size: 1rem;
 }
-
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23FF6600' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Pääsisällön vasen puoli */
+#vasenPalkki {
+    position: sticky;
+    top: 60px;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    border-right: 1px solid var(--accent);
+}
+
+/* Pääsisällön oikea puoli */
+#oikeaSisalto {
+    min-height: 100vh;
+}
+
+/* Animaatiot */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
 }
