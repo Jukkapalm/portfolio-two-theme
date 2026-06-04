@@ -1,0 +1,60 @@
+/* CSS muuttujat (default näkymässä) */
+:root {
+    --bg-color: #FAFAF7;
+    --navbar-bg: #1C1C1C;
+    --accent: #FF6600;
+    --text-color: #3D3530;
+    --text-light: #FAFAF7;
+    --detail: #1B4B5A;
+}
+
+/* Perustyylit */
+html, body {
+    background-color: var(--bg-color);
+}
+
+/* Navbarin tyylit */
+.navbar {
+    background-color: var(--navbar-bg);
+}
+
+.navbar-brand {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: clamp(1.4rem, 2.7vw, 1.8rem);
+    color: var(--accent) !important;
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease;
+    cursor: default;
+}
+
+.navbar-nav .nav-link {
+    color: var(--text-light) !important;
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--accent) !important;
+}
+
+.theme-toggle-btn {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler {
+    border-color: var(--accent);
+    font-size: 1rem;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23FF6600' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
