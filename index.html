@@ -23,24 +23,28 @@
     </head>
     <body>
 
+        <!-- Navigaatio -->
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container-fluid px-4">
 
                 <!-- Navbar nimi/logo -->
                 <a class="navbar-brand" href="#">Jukka Palm</a>
 
+                <!-- Teeman vaihto button - piilossa isommilla näytöillä -->
                 <button class="theme-toggle-btn d-lg-none me-2" id="themeToggleMobile" aria-label="Vaihda teemaa">
                     Duality
                 </button>
 
-                <!-- Hamburgermenu -->
+                <!-- Hamburgermenu button -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+                <!-- Navigaatio linkit - mobiilissa menee hamburgermenun taakse -->
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1 text-center">
                         <li class="nav-item d-none d-lg-flex align-items-center">
+                            <!-- Teeman vaihto button - tämä puolestaan piilossa pienemmillä näytöillä -->
                             <button class="theme-toggle-btn" id="themeToggle" aria-label="Vaihda teemaa">
                                 Duality
                             </button>
@@ -55,6 +59,25 @@
 
             </div>
         </nav>
+
+        <!-- Sisältö jaettu. Vasen puoli noin 35% & oikea puoli noin 65% -->
+        <div class="container-fluid px-0" style="padding-top: 60px;">
+            <div class="row g-0">
+
+                <div class="col-lg-4 col-12 bg-primary" id="vasenPalkki">
+                    <p>Tänne myöhemmin mahd päiväkirja & AI apuri</p>
+                </div>
+
+                <div class="col-lg-8 col-12 bg-secondary" id="oikeaSisalto">
+
+                    <section id="minusta"></section>
+                    <section id="teknologiat"></section>
+                    <section id="projektit"></section>
+                    <section id="koulutus"></section>
+                    <section id="building"></section>
+                </div>
+            </div>
+        </div>
 
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
