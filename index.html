@@ -63,22 +63,25 @@
         <!-- Sisältö jaettu. Vasen puoli noin 35% & oikea puoli noin 65% -->
         <div class="container-fluid">
             <div class="row">
+
+                <!-- Sivun vasen puoli -->
                 <div class="col-md-4 p-0">
                     <aside class="sidebar" aria-label="Profiili ja navigointi">
                         <h2>Tänne päiväkirja ja botti</h2>
                     </aside>
                 </div>
 
+                <!-- Sivun oikea puoli -->
                 <div class="col-md-8">
                     <main class="main-content">
                         <section class="esittely">
-                            <div class="row">
-                                <div class="col-12 col-lg-7 offset-lg-2 align-items-center d-flex justify-content-center text-center" style="position: relative;">
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-lg-7 text-center" style="position: relative;">
                                     <canvas id="hexCanvas"></canvas>
                                     <img src="images/jp_img-tausta-poistettu.png" alt="Jukka Palm">
                                 </div>
 
-                                <div class="col-12 col-lg-10 offset-lg-1">
+                                <div class="col-12 col-lg-10">
                                     <h1 class="nimi">Jukka Palm</h1>
                                     <h2 class="titteli">Software dev trainee</h2>
                                     <p class="esittely-teksti">
@@ -102,6 +105,7 @@
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
+        <!-- Oma JS -->
         <script src="js/main.js"></script>
     </body>
 </html>
