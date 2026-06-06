@@ -2,7 +2,8 @@
 :root {
     --bg-color: #FAFAF7;
     --navbar-bg: #1C1C1C;
-    --accent: #FF6600;
+    /*--accent: #FF6600;*/
+    --accent: #00A878;
     --text-color: #3D3530;
     --text-light: #FAFAF7;
     --detail: #1B4B5A;
@@ -18,7 +19,8 @@ html {
 }
 
 body {
-    background-color: var(--bg-color);
+    background: linear-gradient(135deg, #FFFFFF 50%, #C2E8DC 100%);
+    background-attachment: fixed;
 }
 
 /* Navbarin tyylit */
@@ -28,13 +30,11 @@ body {
 
 /* Navbar nimi/logo */
 .navbar-brand {
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: 'Syne', sans-serif;
     font-size: clamp(1.4rem, 2.7vw, 1.8rem);
     color: var(--accent) !important;
-    letter-spacing: 0.05em;
     transition: color 0.3s ease;
     cursor: default;
-    font-weight: 500;
 }
 
 /* Navigaatio linkit */
@@ -44,7 +44,7 @@ body {
     padding-left: 1rem;
     padding-right: 1rem;
     transition: color 0.3s ease;
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: 'Syne', sans-serif;
 }
 .navbar-nav .nav-link:hover {
     color: var(--accent) !important;
@@ -60,7 +60,7 @@ body {
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: 'Syne', sans-serif;
     animation: pulse 2s ease-in-out infinite;
 }
 
@@ -70,19 +70,24 @@ body {
     font-size: 1rem;
 }
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23FF6600' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%2300A878' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 /* Sivupalkki */
 .sidebar {
-    border-right: 1px solid #FF6600;
+    border-right: 1px solid var(--accent);
     height: 100vh;
     top: 0;
     position: sticky;
+    padding-top: 5rem;
+}
+
+.main-content {
+    padding-top: 6rem;
 }
 
 /* Canvaksen asetukset hex kennostolle */
-#hexCanvas {
+#neuro-canvas {
     position: absolute;
     top: 0;
     left: 0;
@@ -98,6 +103,63 @@ body {
     width: 100%;
     max-width: 250px;
     height: auto;
+}
+
+.nimi {
+    font-family: 'Syne', sans-serif;
+    color: #1A1A1A;
+    margin-top: 2rem;
+}
+
+.otsikko {
+    font-family: 'Syne', sans-serif;
+    color: #00A878;
+}
+
+.leipateksti {
+    font-family: 'DM Sans', sans-serif;
+}
+
+.section-sep {
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #1A1A1A, var(--accent));
+    border-radius: 3px;
+    margin: 3rem 0rem;
+}
+
+.stack-cat-label {
+    font-family: 'Syne', sans-serif;
+    color: #1A1A1A;
+    letter-spacing: 0.18em;
+    margin-top: 4rem;
+}
+
+.tech-badge {
+    background: transparent;
+    border: 1px solid #1A1A1A;
+    padding: 10px 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 120px;
+    cursor: default;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-badge i {
+    transition: transform 0.3s ease;
+}
+
+.tech-badge:hover {
+    transform: scale(1.01);
+    border-color: var(--badge-color);
+    box-shadow: 0 0 10px var(--badge-color);
+}
+
+.tech-badge:hover i {
+    transform: scale(1.05);
 }
 
 /* Animaatiot */
