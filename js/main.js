@@ -1,64 +1,98 @@
-// Haetaan canvas elementti ja luodaan 2D piirtokonteksti
-const canvas = document.getElementById('hexCanvas');
-const ctx = canvas.getContext('2d');
+// Neuroverkko - partikkelianimaatio
+function initNeuralNetwork() {
+    const canvas = document.getElementById('neuro-canvas');
+    const ctx = canvas.getContext('2d');
+    let nodes = [];
+    let W, H;
 
-// Pääfunktio joka piirtää heksagonikennoston
-function drawHexGrid() {
+    const node_count = 20;
+    const max_dist = 150;
+    const node_color = 'rgba(0, 168, 120,';
+    const line_color = 'rgba(0, 168, 120,';
 
-    // Asettaa canvaksen koon vastaamaan HTML elementin kokoa
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
+    function resize() {
+        W = canvas.width = canvas.offsetWidth;
+        H = canvas.height = canvas.offsetHeight;
+    }
 
-    // Kennon säde, kennon leveys, kennon korkeus
-    const size = 35;
-    const w = Math.sqrt(3) * size;
-    const h = size * 2;
+    function createNodes() {
+        nodes = [];
+        for (let i = 0; i < node_count; i++) {
+            nodes.push({
+                x: Math.random() * W,
+                y: Math.random() * H,
 
-    // Tyhjennetään canvas ennen uudelleenpiirtoa
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.strokeStyle = '#FF6600';
-    ctx.globalAlpha = 1;
-    ctx.lineWidth = 1.5;
-
-    // Lasketaan kuinka monta kokonaista kennoa mahtuu
-    const cols = Math.floor(canvas.width / w);
-    const rows = Math.floor(canvas.height / (h * 0.75));
-
-    // Käydään läpi jokainen rivi ja kolumni
-    for (let row = 0; row < rows; row++) {
-        for (let col = 0; col < cols; col++) {
-
-            // Lasketaan kennon keskipisteen sijainti
-            // Joka toinen rivi siirretään puoli kennoa oikealle
-            const x = col * w + (row % 2 === 0 ? 0 : w / 2);
-            const y = row * (h * 0.75);
-        
-            // Tarkistetaan että kenno mahtuu kokonaan canvasille ennen piirtämistä
-            // Näin reunat eivät leikkaannu
-            if (x - size >= 0 && x + size <= canvas.width && y - size >= 0 && y + size <= canvas.height) {
-                drawHexagon(x, y, size);
-            }
+                // Nopeuskerroin
+                vx: (Math.random() - 0.5) * 0.2,
+                vy: (Math.random() - 0.5) * 0.2,
+                r: Math.random() * 2 + 1,
+            });
         }
     }
-}
 
-// Piirtää yhden kennon annettuun keskipisteeseen annetulla säteellä
-function drawHexagon (x, y, size) {
-    ctx.beginPath();
+    function draw() {
+        ctx.clearRect(0, 0, W, H);
 
-    // Käydään läpi heksagonin 6 kulmapistettä
-    for (let i = 0; i < 6; i++) {
-        const angle = (Math.PI / 3) * i - Math.PI / 6;
-        const px = x + size * Math.cos(angle);
-        const py = y + size * Math.sin(angle);
-        i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+        // Yhteyslinjat solmujen välillä
+        for (let i = 0; i < nodes.length; i++) {
+            for (let j = i + 1; j < nodes.length; j++) {
+                const dx = nodes[i].x - nodes[j].x;
+                const dy = nodes[i].y - nodes[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < max_dist) {
+                    const alpha = (1 - dist / max_dist) * 1;
+                    ctx.beginPath();
+                    ctx.moveTo(nodes[i].x, nodes[i].y);
+                    ctx.lineTo(nodes[j].x, nodes[j].y);
+                    ctx.strokeStyle = line_color + alpha + ')';
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                }
+            }
+        }
+
+        // Solmupisteet
+        nodes.forEach(n => {
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+            ctx.fillStyle = node_color + '0.7)';
+            ctx.shadowBlur = 6;
+            ctx.shadowColor = node_color + '0.5)';
+            ctx.fill();
+            ctx.shadowBlur = 0;
+        });
     }
-    ctx.closePath();
-    ctx.stroke();
+
+    function update() {
+        nodes.forEach(n => {
+            n.x += n.vx;
+            n.y += n.vy;
+            // Reunasta kimmoke
+            if (n.x < 0 || n.x > W) n.vx *= -1;
+            if (n.y < 0 || n.y > H) n.vy *= -1;
+        });
+    }
+
+    function loop() {
+        update();
+        draw();
+        requestAnimationFrame(loop);
+    }
+
+    resize();
+    createNodes();
+    loop();
+
+    // Estetään mobiilissa kosketusnäytöllä jatkuva uudelleen piirtäminen jos käyttäjä selaa ruutua
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            resize;
+            createNodes;
+        }, 250);
+    });
 }
 
-// Piirretään kennosto heti sivun latautuessa
-drawHexGrid();
-
-// Piirretään uudelleen kun ikkunan koko muuttuu
-window.addEventListener('resize', drawHexGrid);
+initNeuralNetwork();
