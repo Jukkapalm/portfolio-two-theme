@@ -5,7 +5,7 @@ function initNeuralNetwork() {
     let nodes = [];
     let W, H;
 
-    const node_count = 20;
+    const node_count = 50;
     const max_dist = 150;
     const node_color = 'rgba(0, 168, 120,';
     const line_color = 'rgba(0, 168, 120,';
