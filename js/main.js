@@ -1,3 +1,7 @@
+// Neuroverkon globaalit muuttujat
+let node_color = 'rgba(0, 168, 120,';
+let line_color = 'rgba(0, 168, 120,';
+
 // Neuroverkko - partikkelianimaatio
 function initNeuralNetwork() {
     const canvas = document.getElementById('neuro-canvas');
@@ -7,8 +11,6 @@ function initNeuralNetwork() {
 
     const node_count = 50;
     const max_dist = 150;
-    const node_color = 'rgba(0, 168, 120,';
-    const line_color = 'rgba(0, 168, 120,';
 
     function resize() {
         W = canvas.width = canvas.offsetWidth;
@@ -86,13 +88,37 @@ function initNeuralNetwork() {
 
     // Estetään mobiilissa kosketusnäytöllä jatkuva uudelleen piirtäminen jos käyttäjä selaa ruutua
     let resizeTimer;
+    let lastWidth = window.innerWidth;
     window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-            resize;
-            createNodes;
-        }, 250);
+        if (window.innerWidth !== lastWidth) {
+            lastWidth = window.innerWidth;
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                resize();
+                createNodes();
+            }, 250);
+        }
     });
 }
 
 initNeuralNetwork();
+
+const toggleBtn = document.querySelectorAll('.theme-toggle-btn');
+
+toggleBtn.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const isCyber = document.documentElement.getAttribute('data-theme') === 'cyberpunk';
+
+        if (isCyber) {
+            document.documentElement.removeAttribute('data-theme');
+            node_color = 'rgba(0, 168, 120,';
+            line_color = 'rgba(0, 168, 120,';
+            toggleBtn.forEach(b => b.textContent = 'Duality');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'cyberpunk');
+            node_color = 'rgba(0, 255, 238';
+            line_color = 'rgba(0, 255, 238';
+            toggleBtn.forEach(b => b.textContent = 'Duality');
+        }
+    });
+});
