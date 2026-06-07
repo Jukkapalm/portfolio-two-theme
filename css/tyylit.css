@@ -137,14 +137,15 @@ body {
 
 .tech-badge {
     background: transparent;
-    border: 1px solid #1A1A1A;
-    padding: 10px 20px;
-    border-radius: 12px;
+    border: 1px solid rgba(26, 26, 26, 0.2);
+    padding: 10px;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 120px;
+    min-width: 110px;
     cursor: default;
+    font-family: 'DM Sans', sans-serif;
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -162,8 +163,32 @@ body {
     transform: scale(1.05);
 }
 
+/* "In progress" - indikaattori*/
+.current-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Vilkkuva vihreä pallo */
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #2ecc71;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.65rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: 3px;
+    border: 1px solid rgba(26, 26, 26, 0.2);
+}
+
 /* Animaatiot */
 @keyframes pulse {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+    50% { opacity: 0.4; }
 }
