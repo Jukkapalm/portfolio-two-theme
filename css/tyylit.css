@@ -93,7 +93,7 @@ body {
     height: auto;
 }
 
-.nimi {
+.iso-otsikko {
     font-family: 'Syne', sans-serif;
     color: #1A1A1A;
     margin-top: 2rem;
@@ -109,7 +109,7 @@ body {
 }
 
 .section-sep {
-    width: 100px;
+    width: 200px;
     height: 3px;
     background: linear-gradient(90deg, #FFFFFF, #00A878);
     border-radius: 3px;
@@ -202,7 +202,7 @@ body {
 }
 
 [data-theme="cyberpunk"] .navbar {
-    background-color: #0A0A0F;
+    background: #111118;
     border-bottom: 1px solid #FF00AA;
     box-shadow: 0 0 15px #FF00AA;
 }
@@ -247,7 +247,7 @@ body {
     filter: saturate(0) contrast(1.5) brightness(0.5);
 }
 
-[data-theme="cyberpunk"] .nimi {
+[data-theme="cyberpunk"] .iso-otsikko {
     font-family: 'Chakra Petch', serif;
     color: #FFE600;
 }
@@ -261,21 +261,50 @@ body {
 
 [data-theme="cyberpunk"] .leipateksti {
     color: #E0E0E0;
-    font-family: 'Courier New', serif;
+    font-family: 'Share Tech Mono', serif;
+    letter-spacing: 0.05em;
 }
 
 [data-theme="cyberpunk"] .section-sep {
-    background: linear-gradient(90deg, #0A0A0A, #00FFEE);
+    background: linear-gradient(90deg, #0A0A0A, #FF00AA);
 }
 
 [data-theme="cyberpunk"] .stack-cat-label {
     font-family: 'Orbitron', serif;
-    color: #FFE600;
+    color: #00FFEE;
 }
 
 [data-theme="cyberpunk"] .tech-badge {
-    font-family: 'Courier New', serif;
-    color: #FF00AA;
+    font-family: 'Share Tech Mono', serif;
+    color: #E0E0E0;
+    letter-spacing: 0.05em;
+    background: #111118;
+}
+
+[data-theme="cyberpunk"] .card {
+    background: #111118;
+}
+
+[data-theme="cyberpunk"] .card:hover {
+    border: 1px solid #FF00AA;
+    box-shadow: 0 0 5px #FF00AA;
+}
+
+[data-theme="cyberpunk"] .status-text {
+    color: #E0E0E0;
+    font-family: 'Share Tech Mono', serif;
+    letter-spacing: 0.05em;
+}
+
+[data-theme="cyberpunk"] .kurssi {
+    color: #00FFEE;
+}
+
+[data-theme="cyberpunk"] .tag {
+    border: 1px solid #00FFEE;
+    color: #00FFEE;
+    font-family: 'Share Tech Mono', serif;
+    letter-spacing: 0.05em;
 }
 
 @media (max-width: 768px) {
