@@ -116,8 +116,8 @@ toggleBtn.forEach(btn => {
             toggleBtn.forEach(b => b.textContent = 'Duality');
         } else {
             document.documentElement.setAttribute('data-theme', 'cyberpunk');
-            node_color = 'rgba(0, 255, 238';
-            line_color = 'rgba(0, 255, 238';
+            node_color = 'rgba(0, 255, 238,';
+            line_color = 'rgba(0, 255, 238,';
             toggleBtn.forEach(b => b.textContent = 'Duality');
         }
     });
