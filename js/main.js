@@ -122,3 +122,60 @@ toggleBtn.forEach(btn => {
         }
     });
 });
+
+// Navigaatio ja sectionit
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+
+// Navigaatio linkkien scroll
+document.querySelectorAll('.nav-link[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        const oikeaSisalto = document.getElementById('oikeaSisalto');
+        if (target && oikeaSisalto) {
+            oikeaSisalto.scrollTo({
+                top: target.offsetTop - 20,
+                behavior: 'smooth'
+            });
+        }
+
+        // Päivitetään aktiivinen linkki heti klikkauksen yhteydessä
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+
+        // Suljetaan hamburger menu
+        const navbar = document.getElementById('collapsibleNavbar');
+        if (navbar.classList.contains('show')) {
+            const toggler = document.querySelector('.navbar-toggler');
+            toggler.click();
+        }
+    });
+});
+
+// Aktiivinen navigaatio linkki scrollauksen mukaan
+document.getElementById('oikeaSisalto').addEventListener('scroll', () => {
+    const oikeaSisalto = document.getElementById('oikeaSisalto');
+    let current = '';
+
+    // Tarkistetaan onko scrollattu lähes loppuun
+    const atBottom = oikeaSisalto.scrollTop + oikeaSisalto.clientHeight >= oikeaSisalto.scrollHeight - 50;
+    
+    if (atBottom) {
+        current = sections[sections.length - 1].getAttribute('id');
+    } else {
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (oikeaSisalto.scrollTop >= sectionTop - 100) {
+                current = section.getAttribute('id');
+            }
+        });
+    }
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+        }
+    });
+});
