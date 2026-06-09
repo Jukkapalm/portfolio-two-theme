@@ -73,7 +73,7 @@
             <div class="row">
 
                 <!-- Sivun vasen puoli -->
-                <div class="col-md-4 p-0">
+                <div class="col-md-4 p-0 d-none d-md-block">
                     <aside class="sidebar" aria-label="Profiili ja navigointi">
                         <h2>Tänne päiväkirja ja botti</h2>
                     </aside>
@@ -82,6 +82,20 @@
                 <!-- Sivun oikea puoli -->
                 <div class="col-md-8" id="oikeaSisalto">
                     <main class="main-content">
+
+                        <div class="d-md-none sticky-top p-2 mb-2" id="mobileTabs-wrapper">
+                            <ul class="nav nav-tabs w-100" id="mobileTabs">
+                                <li class="nav-item flex-fill text-center">
+                                    <a class="nav-link active" data-tab="profiili" href="#">Profiili</a>
+                                </li>
+                                <li class="nav-item flex-fill text-center">
+                                    <a class="nav-link" data-tab="blogi" href="#">Blogi</a>
+                                </li>
+                                <li class="nav-item flex-fill text-center">
+                                    <a class="nav-link" data-tab="ai" href="#">AI</a>
+                                </li>
+                            </ul>
+                        </div>
 
                         <!-- Esittely -->
                         <section class="esittely" id="minusta">
@@ -328,7 +342,7 @@
                                 </div>
                             </div>
                         </footer>
-                        
+
                     </main>
                 </div>
             </div>
