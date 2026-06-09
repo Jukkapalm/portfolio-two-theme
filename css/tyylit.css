@@ -10,13 +10,9 @@ html {
 body {
     background: linear-gradient(135deg, #FFFFFF 50%, #C2E8DC 100%);
     background-attachment: fixed;
-}
-
-#oikeaSisalto {
-    overflow-y: auto;
-    height: calc(100vh - 60px);
-    position: sticky;
-    top: 60px;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
 }
 
 /* Navbarin tyylit */
@@ -82,8 +78,37 @@ body {
     padding-top: 5rem;
 }
 
+/* Mobiili välilehdet */
+#mobileTabs-wrapper {
+    position: sticky;
+    top: 60px;
+    z-index: 100;
+    background: #FFFFFF;
+}
+#mobileTabs .nav-link {
+    color: #1A1A1A;
+    font-family: 'Syne', sans-serif;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    font-size: clamp(0.8rem, 3vw, 0.95rem);
+    border-radius: 0;
+    border-bottom: 1px solid #00A878;
+}
+
+#mobileTabs .nav-link.active {
+    color: #00A878;
+    border-color: #00A878 #00A878 transparent #00A878;
+}
+
 .main-content {
     padding-top: 4rem;
+}
+
+#oikeaSisalto {
+    overflow-y: auto;
+    height: calc(100vh - 70px);
+    position: sticky;
+    margin-top: 70px;
 }
 
 /* Canvaksen asetukset hex kennostolle */
@@ -296,6 +321,21 @@ body {
     border-right: 1px solid #FF00AA;
 }
 
+[data-theme="cyberpunk"] #mobileTabs-wrapper {
+    background: #0A0A0A;
+}
+
+[data-theme="cyberpunk"] #mobileTabs .nav-link {
+    font-family: 'Chakra Petch', serif;
+    background: #0A0A0A;
+    color: #00FFEE;
+    border-bottom: 1px solid #00FFEE;
+}
+
+[data-theme="cyberpunk"] #mobileTabs .nav-link.active {
+    border-color: #00FFEE #00FFEE transparent #00FFEE;
+}
+
 [data-theme="cyberpunk"] .esittely img {
     filter: saturate(0) contrast(1.5) brightness(0.5);
 }
@@ -382,12 +422,20 @@ body {
     color: #FF00AA;
 }
 
-@media (max-width: 768px) {
+/* Media kyselyt */
+@media (max-width: 767px) {
     .sidebar {
         border-right: none;
     }
     [data-theme="cyberpunk"] .sidebar {
         border-right: none;
+    }
+}
+
+@media (max-width: 767px) {
+    #oikeaSisalto {
+        height: 100vh;
+        margin-top: 0;
     }
 }
 
