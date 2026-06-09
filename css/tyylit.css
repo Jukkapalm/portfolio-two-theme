@@ -208,8 +208,41 @@ body {
     border: 1px solid rgba(26, 26, 26, 0.2);
 }
 
-.currently {
-    padding-bottom: 40vh;
+/* Footerin tyylit */
+.footer {
+    border-top: 1px solid rgba(26, 26, 26, 0.15);
+    margin-top: 2rem;
+}
+
+.footer-nimi {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    color: #1A1A1A;
+    letter-spacing: 0.05em;
+}
+
+.footer-tech {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(0.75rem, 1.2vw, 0.85rem);
+    color: rgba(26, 26, 26, 0.6);
+}
+
+.footer-linkit {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.footer-linkit a {
+    color: #1A1A1A;
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+}
+
+.footer-linkit a:hover {
+    color: #00A878;
+    transform: scale(1.1);
 }
 
 /* Cyberpunk teema */
@@ -325,6 +358,28 @@ body {
     color: #00FFEE;
     font-family: 'Share Tech Mono', serif;
     letter-spacing: 0.05em;
+}
+
+[data-theme="cyberpunk"] .footer {
+    border-top: 1px solid #FF00AA;
+}
+
+[data-theme="cyberpunk"] .footer-nimi {
+    font-family: 'Orbitron', serif;
+    color: #00FFEE;
+}
+
+[data-theme="cyberpunk"] .footer-tech {
+    font-family: 'Share Tech Mono', serif;
+    color: #E0E0E0;
+}
+
+[data-theme="cyberpunk"] .footer-linkit a {
+    color: #00FFEE;
+}
+
+[data-theme="cyberpunk"] .footer-linkit a:hover {
+    color: #FF00AA;
 }
 
 @media (max-width: 768px) {
