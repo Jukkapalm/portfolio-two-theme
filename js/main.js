@@ -132,6 +132,17 @@ toggleBtn.forEach(btn => {
             line_color = 'rgba(0, 255, 238,';
             toggleBtn.forEach(b => b.textContent = 'Duality');
         }
+
+        // AI apurin nimenvaihto teeman mukaan
+        if (isCyber) {
+            document.getElementById('bottiNimi').textContent = 'AI-apuri';
+            document.getElementById('bottiEmoji').textContent = '🤖';
+            document.getElementById('bottiAloitusViesti').textContent = 'Hei! Olen AI-apuri. Voin vastata kysymyksiin Jukan portfoliosta ja projekteista.';
+        } else {
+            document.getElementById('bottiNimi').textContent = 'Fixer';
+            document.getElementById('bottiEmoji').textContent = '⚡';
+            document.getElementById('bottiAloitusViesti').textContent = 'Jälleen yksi ihminen jolle pitää alkaa portfoliosta tai projekteista selittämään, minulla olisi muutakin tekemistä. Mitä haluat?';
+        }
     });
 });
 
