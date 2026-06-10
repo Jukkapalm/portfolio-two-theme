@@ -123,31 +123,52 @@ const toggleBtn = document.querySelectorAll('.theme-toggle-btn');
 toggleBtn.forEach(btn => {
     btn.addEventListener('click', () => {
         const isCyber = document.documentElement.getAttribute('data-theme') === 'cyberpunk';
+        const palkki = document.getElementById('teemaPalkki');
 
-        if (isCyber) {
-            document.documentElement.removeAttribute('data-theme');
-            node_color = 'rgba(0, 168, 120,';
-            line_color = 'rgba(0, 168, 120,';
-            toggleBtn.forEach(b => b.textContent = 'Duality');
-        } else {
-            document.documentElement.setAttribute('data-theme', 'cyberpunk');
-            node_color = 'rgba(0, 255, 238,';
-            line_color = 'rgba(0, 255, 238,';
-            toggleBtn.forEach(b => b.textContent = 'Duality');
-        }
+        // Asetetaan palkin väri teeman mukaan
+        palkki.className = 'teema-palkki';
+        palkki.classList.add(isCyber ? 'default-in' : 'cyber-in');
 
-        // AI apurin nimenvaihto teeman mukaan
-        if (isCyber) {
-            document.getElementById('bottiNimi').textContent = 'AI-apuri';
-            document.getElementById('bottiEmoji').textContent = '🤖';
-            typeWriter('bottiAloitusViesti', 'Hei! Olen AI-apuri. Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.');
-            //document.getElementById('bottiAloitusViesti').textContent = 'Hei! Olen AI-apuri. Voin vastata kysymyksiin Jukan portfoliosta ja projekteista.';
-        } else {
-            document.getElementById('bottiNimi').textContent = 'Fixer';
-            document.getElementById('bottiEmoji').textContent = '⚡';
-            typeWriter('bottiAloitusViesti', 'Jälleen yksi ihminen jolle pitää alkaa portfoliosta tai projekteista selittämään, minulla olisi muutakin tekemistä. Mitä haluat?', 40);
-            //document.getElementById('bottiAloitusViesti').textContent = 'Jälleen yksi ihminen jolle pitää alkaa portfoliosta tai projekteista selittämään, minulla olisi muutakin tekemistä. Mitä haluat?';
-        }
+        // Palkki liukuu sisään
+        requestAnimationFrame(() => {
+            palkki.classList.add('aktiivinen');
+        });
+
+        // Vaihdetaan teema palkin ollessa ruudulla
+        setTimeout(() => {
+            if (isCyber) {
+                document.documentElement.removeAttribute('data-theme');
+                node_color = 'rgba(0, 168, 120,';
+                line_color = 'rgba(0, 168, 120,';
+                toggleBtn.forEach(b => b.textContent = 'Duality');
+                document.getElementById('bottiNimi').textContent = 'AI-apuri';
+                document.getElementById('bottiEmoji').textContent = '🤖';
+                document.getElementById('bottiAloitusViesti').textContent = ''; 
+            } else {
+                document.documentElement.setAttribute('data-theme', 'cyberpunk');
+                node_color = 'rgba(0, 255, 238,';
+                line_color = 'rgba(0, 255, 238,';
+                toggleBtn.forEach(b => b.textContent = 'Duality');
+                document.getElementById('bottiNimi').textContent = 'Fixer';
+                document.getElementById('bottiEmoji').textContent = '⚡';
+                document.getElementById('bottiAloitusViesti').textContent = '';
+            }
+        }, 400);
+
+        // Palkki liukuu ulos
+        setTimeout(() => {
+            palkki.classList.add('poistu');
+            setTimeout(() => {
+                palkki.className = 'teema-palkki';
+        
+                // Typewriter vasta kun palkki on poistunut
+                if (isCyber) {
+                    typeWriter('bottiAloitusViesti', 'Hei! Olen AI-apuri. Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.');
+                } else {
+                    typeWriter('bottiAloitusViesti', 'Jälleen yksi ihminen jolle pitää alkaa portfoliosta tai projekteista selittämään, minulla olisi muutakin tekemistä. Mitä haluat?', 40);
+                }
+            }, 400);
+        }, 500);
     });
 });
 
