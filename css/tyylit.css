@@ -76,6 +76,8 @@ body {
     top: 0;
     position: sticky;
     padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Mobiili välilehdet */
@@ -270,6 +272,143 @@ body {
     transform: scale(1.1);
 }
 
+/* Blogi feed */
+.blogi-feed {
+    padding: 1rem;
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* Yksittäinen blogi kortti */
+.blogi-kortti {
+    border: 1px solid rgba(26, 26, 26, 0.15);
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Blogi kortin päivämäärä */
+.blogi-pvm {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    color: rgba(26, 26, 26, 0.5);
+    margin-bottom: 0.5rem;
+}
+
+/* Blogi merkinnät teksti */
+.blogi-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+    color: #1A1A1A;
+    margin-bottom: 0.75rem;
+}
+
+/* Botin kommentti */
+.blogi-kommentti {
+    border-left: 2px solid #00A878;
+    padding-left: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.kommentti-nimi {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.75rem;
+    color: #00A878;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.kommentti-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+    color: rgba(26, 26, 26, 0.7);
+    margin: 0;
+}
+
+/* Botti alue */
+.botti-alue {
+    height: 35vh;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(26, 26, 26, 0.15);
+    padding: 0.75rem 1rem;
+}
+
+/* Botin header */
+.botti-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.botti-emoji {
+    font-size: 1.3rem;
+}
+
+.botti-nimi {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    color: #00A878;
+    font-weight: 600;
+}
+
+/* Viestialue — scrollaa kun täyttyy */
+.botti-viestit {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 0.5rem;
+}
+
+.botti-viesti {
+    margin-bottom: 0.5rem;
+}
+
+.viesti-teksti {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+    color: #1A1A1A;
+    margin: 0;
+}
+
+/* Input alue */
+.botti-input {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.botti-tekstikentta {
+    flex: 1;
+    padding: 0.4rem 0.7rem;
+    border: 1px solid rgba(26, 26, 26, 0.2);
+    border-radius: 4px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+    background: transparent;
+    color: #1A1A1A;
+    outline: none;
+}
+
+.botti-tekstikentta:focus {
+    border-color: #00A878;
+}
+
+.botti-nappi {
+    background: #00A878;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.4rem 0.7rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.botti-nappi:hover {
+    background: #008f65;
+}
+
 /* Cyberpunk teema */
 [data-theme="cyberpunk"] body {
     background: #0A0A0A;
@@ -420,6 +559,67 @@ body {
 
 [data-theme="cyberpunk"] .footer-linkit a:hover {
     color: #FF00AA;
+}
+
+[data-theme="cyberpunk"] .blogi-kortti {
+    background: #111118;
+}
+
+[data-theme="cyberpunk"] .blogi-pvm {
+    font-family: 'Share Tech Mono', serif;
+    color: #00FFEE;
+}
+
+[data-theme="cyberpunk"] .blogi-text {
+    color: #00FFEE;
+    font-family: 'Share Tech Mono', serif;
+}
+
+[data-theme="cyberpunk"] .blogi-kommentti {
+    border-left: 2px solid #FF00AA;
+}
+
+[data-theme="cyberpunk"] .kommentti-nimi {
+    color: #FF00AA;
+    font-family: 'Chakra Petch', serif;
+}
+
+[data-theme="cyberpunk"] .kommentti-text {
+    color: #FF00AA;
+    font-family: 'Share Tech Mono', serif;
+}
+
+[data-theme="cyberpunk"] .botti-alue {
+    border-top: 1px solid #FF00AA;
+}
+
+[data-theme="cyberpunk"] .botti-nimi {
+    font-family: 'Chakra Petch', serif;
+    color: #00FFEE;
+}
+
+[data-theme="cyberpunk"] .viesti-teksti {
+    font-family: 'Share Tech Mono', serif;
+    color: #E0E0E0;
+}
+
+[data-theme="cyberpunk"] .botti-tekstikentta {
+    border-color: rgba(0, 255, 238, 0.3);
+    color: #E0E0E0;
+    background: #111118;
+    font-family: 'Share Tech Mono', serif;
+}
+
+[data-theme="cyberpunk"] .botti-tekstikentta:focus {
+    border-color: #00FFEE;
+}
+
+[data-theme="cyberpunk"] .botti-nappi {
+    background: #FF00AA;
+}
+
+[data-theme="cyberpunk"] .botti-nappi:hover {
+    background: #cc0088;
 }
 
 /* Media kyselyt */
