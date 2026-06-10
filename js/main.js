@@ -137,7 +137,7 @@ toggleBtn.forEach(btn => {
 
 // Navigaatio ja sectionit
 const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+const navLinks = document.querySelectorAll('.navbar-nav .nav-link[href^="#"]');
 
 // Navigaatio linkkien scroll
 document.querySelectorAll('.nav-link[href^="#"]').forEach(link => {
