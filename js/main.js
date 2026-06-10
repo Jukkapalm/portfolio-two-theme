@@ -114,6 +114,9 @@ function initNeuralNetwork() {
 
 initNeuralNetwork();
 
+// Käynnistetään typewriter heti sivun latautuessa
+typeWriter('bottiAloitusViesti', 'Hei! Olen AI-apuri. Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.');
+
 // Teeman vaihto button
 const toggleBtn = document.querySelectorAll('.theme-toggle-btn');
 
@@ -137,11 +140,13 @@ toggleBtn.forEach(btn => {
         if (isCyber) {
             document.getElementById('bottiNimi').textContent = 'AI-apuri';
             document.getElementById('bottiEmoji').textContent = '🤖';
-            document.getElementById('bottiAloitusViesti').textContent = 'Hei! Olen AI-apuri. Voin vastata kysymyksiin Jukan portfoliosta ja projekteista.';
+            typeWriter('bottiAloitusViesti', 'Hei! Olen AI-apuri. Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.');
+            //document.getElementById('bottiAloitusViesti').textContent = 'Hei! Olen AI-apuri. Voin vastata kysymyksiin Jukan portfoliosta ja projekteista.';
         } else {
             document.getElementById('bottiNimi').textContent = 'Fixer';
             document.getElementById('bottiEmoji').textContent = '⚡';
-            document.getElementById('bottiAloitusViesti').textContent = 'Jälleen yksi ihminen jolle pitää alkaa portfoliosta tai projekteista selittämään, minulla olisi muutakin tekemistä. Mitä haluat?';
+            typeWriter('bottiAloitusViesti', 'Jälleen yksi ihminen jolle pitää alkaa portfoliosta tai projekteista selittämään, minulla olisi muutakin tekemistä. Mitä haluat?', 40);
+            //document.getElementById('bottiAloitusViesti').textContent = 'Jälleen yksi ihminen jolle pitää alkaa portfoliosta tai projekteista selittämään, minulla olisi muutakin tekemistä. Mitä haluat?';
         }
     });
 });
@@ -213,3 +218,15 @@ document.querySelectorAll('#mobileTabs .nav-link').forEach(tab => {
         tab.classList.add('active');
     });
 });
+
+// Typewriter kirjoitus
+function typeWriter(elementId, teksti, nopeus = 30) {
+    const el = document.getElementById(elementId);
+    el.textContent = '';
+    let i = 0;
+    const timer = setInterval(() => {
+        el.textContent += teksti[i];
+        i++;
+        if (i >= teksti.length) clearInterval(timer);
+    }, nopeus);
+}
