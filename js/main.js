@@ -1,4 +1,6 @@
 // Neuroverkon globaalit muuttujat
+// Määritelty funktion ulkopuolella jotta väriä saa vaihdettua
+// Duality buttonilla
 let node_color = 'rgba(0, 168, 120,';
 let line_color = 'rgba(0, 168, 120,';
 
@@ -9,14 +11,17 @@ function initNeuralNetwork() {
     let nodes = [];
     let W, H;
 
+    // Partikkelien määrä ja maksimietäisyys yhteyslinjan piirtoa varten
     const node_count = 50;
     const max_dist = 150;
 
+    // Asetetaan canvas vastaamaan elementin kokoa
     function resize() {
         W = canvas.width = canvas.offsetWidth;
         H = canvas.height = canvas.offsetHeight;
     }
 
+    // Luodaan pisteet satunnaisiin sijainteihin ja liike suuntiin
     function createNodes() {
         nodes = [];
         for (let i = 0; i < node_count; i++) {
@@ -24,18 +29,19 @@ function initNeuralNetwork() {
                 x: Math.random() * W,
                 y: Math.random() * H,
 
-                // Nopeuskerroin
-                vx: (Math.random() - 0.5) * 0.2,
-                vy: (Math.random() - 0.5) * 0.2,
-                r: Math.random() * 2 + 1,
+                // Nopeuskerroin 0.2
+                vx: (Math.random() - 0.5) * 0.2, // Vaakasuunnan nopeus
+                vy: (Math.random() - 0.5) * 0.2, // Pystysuunnan nopeus
+                r: Math.random() * 2 + 1, // Säde
             });
         }
     }
 
+    // Piirtää yhden framen - viivat ja pisteet
     function draw() {
         ctx.clearRect(0, 0, W, H);
 
-        // Yhteyslinjat solmujen välillä
+        // Yhteyslinjat solmujen välillä jos ne ovat tarpeeksi lähellä
         for (let i = 0; i < nodes.length; i++) {
             for (let j = i + 1; j < nodes.length; j++) {
                 const dx = nodes[i].x - nodes[j].x;
@@ -43,6 +49,8 @@ function initNeuralNetwork() {
                 const dist = Math.sqrt(dx * dx + dy * dy);
 
                 if (dist < max_dist) {
+
+                    // Yhteyslinja läpinäkyvyys kasvaa mitä lähempänä pisteet ovat
                     const alpha = (1 - dist / max_dist) * 1;
                     ctx.beginPath();
                     ctx.moveTo(nodes[i].x, nodes[i].y);
@@ -66,6 +74,7 @@ function initNeuralNetwork() {
         });
     }
 
+    // Liikuttaa pisteitä ja vaihdetaan suuntaa reunoista
     function update() {
         nodes.forEach(n => {
             n.x += n.vx;
@@ -76,6 +85,7 @@ function initNeuralNetwork() {
         });
     }
 
+    // Animaatio silmukka - kutsuu update ja draw joka framella
     function loop() {
         update();
         draw();
@@ -87,6 +97,7 @@ function initNeuralNetwork() {
     loop();
 
     // Estetään mobiilissa kosketusnäytöllä jatkuva uudelleen piirtäminen jos käyttäjä selaa ruutua
+    // Reagoi vain jos näyttö koko muuttuu
     let resizeTimer;
     let lastWidth = window.innerWidth;
     window.addEventListener('resize', () => {
@@ -103,6 +114,7 @@ function initNeuralNetwork() {
 
 initNeuralNetwork();
 
+// Teeman vaihto button
 const toggleBtn = document.querySelectorAll('.theme-toggle-btn');
 
 toggleBtn.forEach(btn => {
@@ -140,11 +152,11 @@ document.querySelectorAll('.nav-link[href^="#"]').forEach(link => {
             });
         }
 
-        // Päivitetään aktiivinen linkki heti klikkauksen yhteydessä
+        // Merkitään klikattu linkki aktiiviseksi navigaatiossa
         navLinks.forEach(l => l.classList.remove('active'));
         link.classList.add('active');
 
-        // Suljetaan hamburger menu
+        // Suljetaan hamburger menu linkin klikkauksen jälkeen
         const navbar = document.getElementById('collapsibleNavbar');
         if (navbar.classList.contains('show')) {
             const toggler = document.querySelector('.navbar-toggler');
@@ -158,12 +170,14 @@ document.getElementById('oikeaSisalto').addEventListener('scroll', () => {
     const oikeaSisalto = document.getElementById('oikeaSisalto');
     let current = '';
 
-    // Tarkistetaan onko scrollattu lähes loppuun
+    // Jos scrollattu lähes sivun loppuun, merkitään viimeinen section aktiiviseksi
     const atBottom = oikeaSisalto.scrollTop + oikeaSisalto.clientHeight >= oikeaSisalto.scrollHeight - 50;
     
     if (atBottom) {
         current = sections[sections.length - 1].getAttribute('id');
     } else {
+
+        // Etsitään mikä section näkyvissä
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             if (oikeaSisalto.scrollTop >= sectionTop - 100) {
@@ -177,5 +191,14 @@ document.getElementById('oikeaSisalto').addEventListener('scroll', () => {
         if (link.getAttribute('href') === '#' + current) {
             link.classList.add('active');
         }
+    });
+});
+
+// Mobiili välilehdet
+document.querySelectorAll('#mobileTabs .nav-link').forEach(tab => {
+    tab.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelectorAll('#mobileTabs .nav-link').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
     });
 });
