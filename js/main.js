@@ -119,6 +119,14 @@ const toggleBtn = document.querySelectorAll('.theme-toggle-btn');
 
 toggleBtn.forEach(btn => {
     btn.addEventListener('click', () => {
+
+        // Pysäytetään typewriter heti napin painalluksesta
+        if (typeWriterTimer) {
+            clearInterval(typeWriterTimer);
+            typeWriterTimer = null;
+        }
+        document.getElementById('bottiAloitusViesti').textContent = '';
+
         const isCyber = document.documentElement.getAttribute('data-theme') === 'cyberpunk';
         const palkki = document.getElementById('teemaPalkki');
 
