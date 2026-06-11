@@ -125,21 +125,23 @@
 
                 <!-- Sivun oikea puoli -->
                 <div class="col-md-8" id="oikeaSisalto">
-                    <main class="main-content">
 
-                        <div class="d-md-none sticky-top p-2 mb-2" id="mobileTabs-wrapper">
-                            <ul class="nav nav-tabs w-100" id="mobileTabs">
-                                <li class="nav-item flex-fill text-center">
-                                    <a class="nav-link active" data-tab="profiili" href="#">Profiili</a>
-                                </li>
-                                <li class="nav-item flex-fill text-center">
-                                    <a class="nav-link" data-tab="blogi" href="#">Blogi</a>
-                                </li>
-                                <li class="nav-item flex-fill text-center">
-                                    <a class="nav-link" data-tab="ai" href="#">AI</a>
-                                </li>
-                            </ul>
-                        </div>
+                    <!-- Välilehdet mobiilissa - nämä oletuksen piilossa desktopilla -->
+                    <div class="d-md-none sticky-top p-2 mb-2" id="mobileTabs-wrapper">
+                        <ul class="nav nav-tabs w-100" id="mobileTabs">
+                            <li class="nav-item flex-fill text-center">
+                                <a class="nav-link active" data-tab="profiili" href="#">Profiili</a>
+                            </li>
+                            <li class="nav-item flex-fill text-center">
+                                <a class="nav-link" data-tab="blogi" href="#">Blogi</a>
+                            </li>
+                            <li class="nav-item flex-fill text-center">
+                                <a class="nav-link" data-tab="ai" href="#">AI</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <main class="main-content" id="mainContent">
 
                         <!-- Esittely -->
                         <section class="esittely" id="minusta">
@@ -388,6 +390,36 @@
                         </footer>
 
                     </main>
+
+                    <!-- Mobiili blogi - tuodaan JavaScriptillä esiin -->
+                    <div id="mobiiliBlogi" style="display:none; padding-top: 4rem;">
+                        <div class="blogi-feed p-3">
+                            <div class="blogi-kortti">
+                                <p class="blogi-pvm">12.6.2025</p>
+                                <p class="blogi-text">Placeholder merkintä blogiin.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobiili AI/Fixer - tuodaan JavaScriptillä esiin -->
+                    <div id="mobiiliFixer" style="display:none; padding-top: 4rem;">
+                        <div class="botti-alue" style="height: auto; border-top: none;">
+                            <div class="botti-header">
+                                <span class="botti-emoji" id="bottiEmojiMobiili">🤖</span>
+                                <span class="botti-nimi" id="bottiNimiMobiili">AI-apuri</span>
+                            </div>
+                            <div class="botti-viestit" style="height: 200px;">
+                                <div class="botti-viesti">
+                                    <p class="viesti-teksti" id="bottiAloitusViestiMobiili">Hei! Olen AI-apuri.</p>
+                                </div>
+                            </div>
+                            <div class="botti-input">
+                                <input type="text" class="botti-tekstikentta" placeholder="Kysy jotain..." maxlength="500">
+                                <button class="botti-nappi">➤</button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
