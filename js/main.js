@@ -114,9 +114,6 @@ function initNeuralNetwork() {
 
 initNeuralNetwork();
 
-// Käynnistetään typewriter heti sivun latautuessa
-typeWriter('bottiAloitusViesti', 'Hei! Olen AI-apuri. Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.');
-
 // Teeman vaihto button
 const toggleBtn = document.querySelectorAll('.theme-toggle-btn');
 
@@ -253,13 +250,22 @@ document.querySelectorAll('#mobileTabs .nav-link').forEach(tab => {
 });
 
 // Typewriter kirjoitus
+let typeWriterTimer = null;
+
 function typeWriter(elementId, teksti, nopeus = 30) {
+    if (typeWriterTimer) clearInterval(typeWriterTimer);
     const el = document.getElementById(elementId);
     el.textContent = '';
     let i = 0;
-    const timer = setInterval(() => {
+    typeWriterTimer = setInterval(() => {
         el.textContent += teksti[i];
         i++;
-        if (i >= teksti.length) clearInterval(timer);
+        if (i >= teksti.length) {
+            clearInterval(typeWriterTimer);
+            typeWriterTimer = null;
+        }
     }, nopeus);
 }
+
+// Käynnistetään typewriter
+typeWriter('bottiAloitusViesti', 'Hei! Olen AI-apuri. Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.');
