@@ -109,6 +109,11 @@ function initNeuralNetwork() {
                 createNodes();
             }, 250);
         }
+        if (window.innerWidth >= 768) {
+            document.getElementById('mainContent').style.display = 'block';
+            document.getElementById('mobiiliBlogi').style.display = 'none';
+            document.getElementById('mobiiliFixer').style.display = 'none';
+        }
     });
 }
 
@@ -141,22 +146,33 @@ toggleBtn.forEach(btn => {
 
         // Vaihdetaan teema palkin ollessa ruudulla
         setTimeout(() => {
+
+            const aiTab = document.querySelector('#mobileTabs .nav-link[data-tab="ai"]');
+
             if (isCyber) {
                 document.documentElement.removeAttribute('data-theme');
                 node_color = 'rgba(0, 168, 120,';
                 line_color = 'rgba(0, 168, 120,';
                 toggleBtn.forEach(b => b.textContent = 'Duality');
+                document.getElementById('bottiAloitusViesti').textContent = 'Hei! Olen AI-apuri, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.';
+                document.getElementById('bottiAloitusViestiMobiili').textContent = 'Hei! Olen AI-apuri, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.';
                 document.getElementById('bottiNimi').textContent = 'AI-apuri';
                 document.getElementById('bottiEmoji').textContent = '🤖';
-                document.getElementById('bottiAloitusViesti').textContent = ''; 
+                document.getElementById('bottiNimiMobiili').textContent = 'AI-apuri';
+                document.getElementById('bottiEmojiMobiili').textContent = '🤖';
+                if (aiTab) aiTab.textContent = 'AI';
             } else {
                 document.documentElement.setAttribute('data-theme', 'cyberpunk');
                 node_color = 'rgba(0, 255, 238,';
                 line_color = 'rgba(0, 255, 238,';
                 toggleBtn.forEach(b => b.textContent = 'Duality');
+                document.getElementById('bottiAloitusViestiMobiili').textContent = 'Jälleen yksi ihminen jolle pitää alkaa portfoliosta tai projekteista selittämään, minulla olisi muutakin tekemistä. Mitä haluat?';
                 document.getElementById('bottiNimi').textContent = 'Fixer';
+                document.getElementById('bottiNimiMobiili').textContent = 'Fixer';
                 document.getElementById('bottiEmoji').textContent = '⚡';
+                document.getElementById('bottiEmojiMobiili').textContent = '⚡';
                 document.getElementById('bottiAloitusViesti').textContent = '';
+                if (aiTab) aiTab.textContent = 'Fixer';
             }
         }, 400);
 
@@ -168,7 +184,7 @@ toggleBtn.forEach(btn => {
         
                 // Typewriter vasta kun palkki on poistunut
                 if (isCyber) {
-                    typeWriter('bottiAloitusViesti', 'Hei! Olen AI-apuri. Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.');
+                    typeWriter('bottiAloitusViesti', 'Hei! Olen AI-apuri, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.');
                 } else {
                     typeWriter('bottiAloitusViesti', 'Jälleen yksi ihminen jolle pitää alkaa portfoliosta tai projekteista selittämään, minulla olisi muutakin tekemistä. Mitä haluat?', 40);
                 }
@@ -276,4 +292,4 @@ function typeWriter(elementId, teksti, nopeus = 30) {
 }
 
 // Käynnistetään typewriter
-typeWriter('bottiAloitusViesti', 'Hei! Olen AI-apuri. Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.');
+typeWriter('bottiAloitusViesti', 'Hei! Olen AI-apuri, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.');
