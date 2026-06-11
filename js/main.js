@@ -237,6 +237,18 @@ document.querySelectorAll('#mobileTabs .nav-link').forEach(tab => {
         e.preventDefault();
         document.querySelectorAll('#mobileTabs .nav-link').forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
+
+        const valittu = tab.getAttribute('data-tab');
+
+        // Piilotetaan kaikki
+        document.getElementById('mainContent').style.display = 'none';
+        document.getElementById('mobiiliBlogi').style.display = 'none';
+        document.getElementById('mobiiliFixer').style.display = 'none';
+
+        // Näytetään valittu
+        if (valittu === 'profiili') document.getElementById('mainContent').style.display = 'block';
+        if (valittu === 'blogi') document.getElementById('mobiiliBlogi').style.display = 'block';
+        if (valittu === 'ai') document.getElementById('mobiiliFixer').style.display = 'block';
     });
 });
 
