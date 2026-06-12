@@ -109,6 +109,7 @@ function initNeuralNetwork() {
                 createNodes();
             }, 250);
         }
+        // Palautetaan desktop näkymä jos ikkuna levenee yli mobiilikokojen
         if (window.innerWidth >= 768) {
             document.getElementById('mainContent').style.display = 'block';
             document.getElementById('mobiiliBlogi').style.display = 'none';
@@ -139,7 +140,7 @@ toggleBtn.forEach(btn => {
         palkki.className = 'teema-palkki';
         palkki.classList.add(isCyber ? 'default-in' : 'cyber-in');
 
-        // Palkki liukuu sisään
+        // Käynnistetään teeman vaihto palkki
         requestAnimationFrame(() => {
             palkki.classList.add('aktiivinen');
         });
@@ -150,6 +151,7 @@ toggleBtn.forEach(btn => {
             const aiTab = document.querySelector('#mobileTabs .nav-link[data-tab="ai"]');
 
             if (isCyber) {
+                // Vaihdetaan default teema
                 document.documentElement.removeAttribute('data-theme');
                 node_color = 'rgba(0, 168, 120,';
                 line_color = 'rgba(0, 168, 120,';
@@ -162,6 +164,7 @@ toggleBtn.forEach(btn => {
                 document.getElementById('bottiEmojiMobiili').textContent = '🤖';
                 if (aiTab) aiTab.textContent = 'AI';
             } else {
+                // Vaihdetaan cyberpunk teema
                 document.documentElement.setAttribute('data-theme', 'cyberpunk');
                 node_color = 'rgba(0, 255, 238,';
                 line_color = 'rgba(0, 255, 238,';
@@ -176,7 +179,7 @@ toggleBtn.forEach(btn => {
             }
         }, 400);
 
-        // Palkki liukuu ulos
+        // Palkki liukuu ulos ja käynnistetään typewriter
         setTimeout(() => {
             palkki.classList.add('poistu');
             setTimeout(() => {
@@ -197,7 +200,7 @@ toggleBtn.forEach(btn => {
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.navbar-nav .nav-link[href^="#"]');
 
-// Navigaatio linkkien scroll
+// Navigaatio linkkien scroll kun navigaatio linkkiä klikataan
 document.querySelectorAll('.nav-link[href^="#"]').forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
@@ -253,6 +256,7 @@ document.getElementById('oikeaSisalto').addEventListener('scroll', () => {
 });
 
 // Mobiili välilehdet
+// Profiili / Blogi / AI/Fixer
 document.querySelectorAll('#mobileTabs .nav-link').forEach(tab => {
     tab.addEventListener('click', (e) => {
         e.preventDefault();
@@ -261,12 +265,12 @@ document.querySelectorAll('#mobileTabs .nav-link').forEach(tab => {
 
         const valittu = tab.getAttribute('data-tab');
 
-        // Piilotetaan kaikki
+        // Piilotetaan kaikki ensin
         document.getElementById('mainContent').style.display = 'none';
         document.getElementById('mobiiliBlogi').style.display = 'none';
         document.getElementById('mobiiliFixer').style.display = 'none';
 
-        // Näytetään valittu
+        // Näytetään valittu välilehti
         if (valittu === 'profiili') document.getElementById('mainContent').style.display = 'block';
         if (valittu === 'blogi') document.getElementById('mobiiliBlogi').style.display = 'block';
         if (valittu === 'ai') document.getElementById('mobiiliFixer').style.display = 'block';
@@ -291,5 +295,5 @@ function typeWriter(elementId, teksti, nopeus = 30) {
     }, nopeus);
 }
 
-// Käynnistetään typewriter
+// Käynnistetään typewriter sivun latautuessa
 typeWriter('bottiAloitusViesti', 'Hei! Olen AI-apuri, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.');
