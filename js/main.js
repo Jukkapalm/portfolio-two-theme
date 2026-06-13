@@ -201,14 +201,16 @@ const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.navbar-nav .nav-link[href^="#"]');
 
 // Navigaatio linkkien scroll kun navigaatio linkkiä klikataan
-document.querySelectorAll('.nav-link[href^="#"]').forEach(link => {
+// Paitsi jos Admin linkkiä painetaan
+document.querySelectorAll('.nav-link[href^="#"]:not(#adminLink)').forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
         const target = document.querySelector(link.getAttribute('href'));
         const oikeaSisalto = document.getElementById('oikeaSisalto');
         if (target && oikeaSisalto) {
+            const offset = window.innerWidth < 768 ? 100 : 20;
             oikeaSisalto.scrollTo({
-                top: target.offsetTop - 20,
+                top: target.offsetTop - offset,
                 behavior: 'smooth'
             });
         }
@@ -275,6 +277,28 @@ document.querySelectorAll('#mobileTabs .nav-link').forEach(tab => {
         if (valittu === 'blogi') document.getElementById('mobiiliBlogi').style.display = 'block';
         if (valittu === 'ai') document.getElementById('mobiiliFixer').style.display = 'block';
     });
+});
+
+// Admin linkki avaa modalin
+document.getElementById('adminLink').addEventListener('click', (e) => {
+    e.preventDefault();
+    adminModal.style.display = 'flex';
+});
+
+// Peruuta sulkee modalin
+document.getElementById('adminSulje').addEventListener('click', () => {
+    adminModal.style.display = 'none';
+    document.getElementById('adminTeksti').value = '';
+    document.getElementById('adminPin').value = '';
+});
+
+// Klikkaus myös modalin ulkopuolella sulkee sen
+adminModal.addEventListener('click', (e) => {
+    if (e.target === adminModal) {
+        adminModal.style.display = 'none';
+        document.getElementById('adminTeksti').value = '';
+        document.getElementById('adminPin').value = '';
+    }
 });
 
 // Typewriter kirjoitus
