@@ -438,6 +438,51 @@ body {
     background: #FFFFFF;
 }
 
+.admin-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #E0E0E0;
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-modal-box {
+    background: #FFFFFF;
+    border: 1px solid #00A878;
+    border-radius: 5px;
+    padding: 2rem;
+    max-width: 400px;
+}
+
+.admin-modal-otsikko {
+    font-family: 'Syne', sans-serif;
+    color: #00A878;
+    margin-bottom: 1rem;
+}
+
+.admin-modal-tekstikentta {
+    width: 100%;
+    margin-bottom: 1rem;
+    resize: none;
+}
+
+.admin-modal-napit {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+.admin-modal-peruuta {
+    background: transparent;
+    border: 1px solid #00A878;
+    color: #00A878;
+}
+
 /* Cyberpunk teema */
 [data-theme="cyberpunk"] body {
     background: #0A0A0A;
@@ -644,11 +689,32 @@ body {
 }
 
 [data-theme="cyberpunk"] .botti-nappi {
-    background: #FF00AA;
+    background: #00CCCC;
 }
 
 [data-theme="cyberpunk"] .botti-nappi:hover {
-    background: #cc0088;
+    background: #00FFEE;
+    color: #FFFFFF;
+}
+
+[data-theme="cyberpunk"] .admin-modal-overlay {
+    background-color: #0A0A0A;
+}
+
+[data-theme="cyberpunk"] .admin-modal-box {
+    background: #111118;
+    border-color: #00FFEE;
+}
+
+[data-theme="cyberpunk"] .admin-modal-otsikko {
+    color: #FFE600;
+    font-family: 'Chakra Petch', serif;
+}
+
+[data-theme="cyberpunk"] .admin-modal-peruuta {
+    border-color: #00FFEE;
+    color: #00FFEE;
+    background: transparent;
 }
 
 /* Media kyselyt */
