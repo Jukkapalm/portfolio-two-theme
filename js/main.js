@@ -301,6 +301,96 @@ adminModal.addEventListener('click', (e) => {
     }
 });
 
+// Haetaan merkinnät tietokannasta sivun latautuessa
+function haeBlogiMerkinnat() {
+    fetch('api/api.php')
+        .then(res => res.json())
+        .then(merkinnat => {
+            const feed = document.getElementById('blogi-feed');
+            const mobiiliFeed = document.getElementById('mobiili-blogi-feed');
+
+            // Tyhjennetään feed ennen päivitystä
+            feed.innerHTML = '';
+            if (mobiiliFeed) mobiiliFeed.innerHTML = '';
+
+            if (merkinnat.length === 0) {
+                feed.innerHTML = '<p class="blogi-text">Ei merkintöjä vielä.</p>';
+                if (mobiiliFeed) mobiiliFeed.innerHTML = '<p class="blogi-text">Ei merkintöjä vielä.</p>';
+                return;
+            }
+
+            merkinnat.forEach(merkinta => {
+                const kortti = luoBlogiKortti(merkinta);
+                feed.appendChild(kortti.cloneNode(true));
+                if (mobiiliFeed) mobiiliFeed.appendChild(kortti);
+            });
+        })
+        .catch(err => {
+            console.error('Virhe haettaessa merkintöjä:', err);
+        });
+}
+
+// Luo yhden blogikortin HTML elementtinä
+function luoBlogiKortti(merkinta) {
+    const kortti = document.createElement('div');
+    kortti.className = 'blogi-kortti';
+
+    // Näytetään vain päivämäärä kellonajasta
+    const pvm = new Date(merkinta.created_at);
+    const pvmTeksti = pvm.toLocaleDateString('fi-FI');
+
+    kortti.innerHTML = `
+        <p class="blogi-pvm">${pvmTeksti}</p>
+        <p class="blogi-text">${merkinta.merkinta}</p>
+    `;
+
+    return kortti;
+}
+
+// Tallennetaan merkintä kun admin modal tallenna nappia painetaan
+document.getElementById('adminTallenna').addEventListener('click', () => {
+    const teksti = document.getElementById('adminTeksti').value.trim();
+    const pin = document.getElementById('adminPin').value.trim();
+
+    if (!teksti) {
+        alert('Kirjoita merkintä ensin.');
+        return;
+    }
+
+    if (!pin) {
+        alert('Anna PIN-koodi.');
+        return;
+    }
+
+    fetch('api/api.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ merkinta: teksti, pin: pin })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.ok) {
+
+            // Suljetaan modal ja tyhjennetään kentät
+            document.getElementById('adminModal').style.display = 'none';
+            document.getElementById('adminTeksti').value = '';
+            document.getElementById('adminPin').value = '';
+
+            // Päivitetään blogi feed
+            haeBlogiMerkinnat();
+        } else {
+            alert('Virhe: ' + data.virhe);
+        }
+    })
+    .catch(err => {
+        console.error('Virhe tallennuksessa:', err);
+        alert('Tallennus epäonnistui.');
+    });
+});
+
+// Haetaan merkinnät sivun latautuessa
+haeBlogiMerkinnat();
+
 // Typewriter kirjoitus
 let typeWriterTimer = null;
 
