@@ -62,6 +62,7 @@
                         <li class="nav-item"><a class="nav-link" href="#projektit">Projektit</a></li>
                         <li class="nav-item"><a class="nav-link" href="#koulutus">Koulutus</a></li>
                         <li class="nav-item"><a class="nav-link" href="#building">Currently Building</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#admin" id="adminLink">Admin?</a></li>
                     </ul>
                 </div>
 
@@ -426,6 +427,19 @@
 
         <!-- Teeman vaihto pyyhkäisy palkki -->
         <div class="teema-palkki" id="teemaPalkki"></div>
+
+        <!-- Admin modal -->
+        <div id="adminModal" class="admin-modal-overlay">
+            <div class="admin-modal-box">
+                <h5 class="admin-modal-otsikko">Admin</h5>
+                <textarea id="adminTeksti" class="botti-tekstikentta admin-modal-tekstikentta" rows="4" placeholder="Kirjoita merkintä..."></textarea>
+                <input type="password" id="adminPin" class="botti-tekstikentta admin-modal-tekstikentta" placeholder="PIN-koodi" maxlength="10">
+                <div class="admin-modal-napit">
+                    <button id="adminSulje" class="botti-nappi admin-modal-peruuta">Peruuta</button>
+                    <button id="adminTallenna" class="botti-nappi">Tallenna</button>
+                </div>
+            </div>
+        </div>
 
         <!-- Bootstrap JS -->
         <script src="js/bootstrap.bundle.min.js"></script>
