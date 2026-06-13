@@ -500,6 +500,7 @@ body {
     color: #FFE600 !important;
     font-weight: 500;
     text-shadow: 0 0 10px, 0 0 20px #FFE600;
+    animation: glitch 4s infinite;
 }
 
 [data-theme="cyberpunk"] .navbar-nav .nav-link {
@@ -738,4 +739,11 @@ body {
 @keyframes pulse {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.4; }
+}
+
+@keyframes glitch {
+    0%, 95%, 100% { text-shadow: 0 0 20px #00FFEE; transform: none; }
+    96% { text-shadow: -5px 0 #FF00AA, 5px 0 #FF00AA; transform: skewX(-1deg); }
+    97% { text-shadow: 5px 0 #00FFEE, -5px 0 #00FFEE; transform: skewX(1deg); }
+    98% { text-shadow: 0 0 20px #FF00AA; transform: none; }
 }
