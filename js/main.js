@@ -411,3 +411,60 @@ function typeWriter(elementId, teksti, nopeus = 30) {
 
 // Käynnistetään typewriter sivun latautuessa
 typeWriter('bottiAloitusViesti', 'Hei! Olen AI-apuri, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.');
+
+// RAG-tekoäly botti
+// Lähettää kysymyksen Flask backendille ja
+// näyttää vastauksen botti-alueella
+const RENDER_URL = 'https://portfolio-rag-9qi2.onrender.com';
+
+function lahetaKysymys(inputId, vastausId) {
+    const input = document.getElementById(inputId);
+    const kysymys = input.value.trim();
+
+    if (!kysymys) return;
+
+    const teema = document.documentElement.getAttribute('data-theme') === 'cyberpunk' ? 'cyberpunk' : 'default';
+    const vastausEl = document.getElementById(vastausId);
+
+    // Näytetään latausviesti
+    vastausEl.textContent = '...';
+    input.value = '';
+    input.disabled = true;
+
+    fetch(`${RENDER_URL}/kysy`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ kysymys, teema })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.vastaus) {
+            vastausEl.textContent = data.vastaus;
+        } else {
+            vastausEl.textContent = 'Virhe: ' + (data.virhe || 'Tuntematon virhe');
+        }
+        input.disabled = false;
+    })
+    .catch(() => {
+        vastausEl.textContent = 'Yhteysvirhe - yritä uudelleen.';
+        input.disabled = false;
+    });
+}
+
+// Desktop botti
+document.getElementById('bottiLaheta').addEventListener('click', () => {
+    lahetaKysymys('bottiInput', 'bottiAloitusViesti');
+});
+
+document.getElementById('bottiInput').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') lahetaKysymys('bottiInput', 'bottiAloitusViesti');
+});
+
+// Mobiili botti
+document.getElementById('bottiLahetaMobiili').addEventListener('click', () => {
+    lahetaKysymys('bottiInputMobiili', 'bottiAloitusViestiMobiili');
+});
+
+document.getElementById('bottiInputMobiili').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') lahetaKysymys('bottiInputMobiili', 'bottiAloitusViestiMobiili');
+});
