@@ -156,11 +156,11 @@ toggleBtn.forEach(btn => {
                 node_color = 'rgba(0, 168, 120,';
                 line_color = 'rgba(0, 168, 120,';
                 toggleBtn.forEach(b => b.textContent = 'Duality');
-                document.getElementById('bottiAloitusViesti').textContent = 'Hei! Olen AI-apuri, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.';
-                document.getElementById('bottiAloitusViestiMobiili').textContent = 'Hei! Olen AI-apuri, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.';
-                document.getElementById('bottiNimi').textContent = 'AI-apuri';
+                document.getElementById('bottiAloitusViesti').textContent = 'Hei! Olen AI-avustaja, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.';
+                document.getElementById('bottiAloitusViestiMobiili').textContent = 'Hei! Olen AI-avustaja, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.';
+                document.getElementById('bottiNimi').textContent = 'AI-avustaja';
                 document.getElementById('bottiEmoji').textContent = '🤖';
-                document.getElementById('bottiNimiMobiili').textContent = 'AI-apuri';
+                document.getElementById('bottiNimiMobiili').textContent = 'AI-avustaja';
                 document.getElementById('bottiEmojiMobiili').textContent = '🤖';
                 if (aiTab) aiTab.textContent = 'AI';
             } else {
@@ -187,7 +187,7 @@ toggleBtn.forEach(btn => {
         
                 // Typewriter vasta kun palkki on poistunut
                 if (isCyber) {
-                    typeWriter('bottiAloitusViesti', 'Hei! Olen AI-apuri, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.');
+                    typeWriter('bottiAloitusViesti', 'Hei! Olen AI-avustaja, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.');
                 } else {
                     typeWriter('bottiAloitusViesti', 'Jälleen yksi ihminen jolle pitää alkaa portfoliosta tai projekteista selittämään, minulla olisi muutakin tekemistä. Mitä haluat?', 40);
                 }
@@ -410,7 +410,7 @@ function typeWriter(elementId, teksti, nopeus = 30) {
 }
 
 // Käynnistetään typewriter sivun latautuessa
-typeWriter('bottiAloitusViesti', 'Hei! Olen AI-apuri, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.');
+typeWriter('bottiAloitusViesti', 'Hei! Olen AI-avustaja, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.');
 
 // RAG-tekoäly botti
 // Lähettää kysymyksen Flask backendille ja
