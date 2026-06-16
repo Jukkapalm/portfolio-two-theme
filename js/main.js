@@ -415,7 +415,7 @@ typeWriter('bottiAloitusViesti', 'Hei! Olen AI-avustaja, kuinka voin auttaa? Voi
 // RAG-tekoäly botti
 // Lähettää kysymyksen Flask backendille ja
 // näyttää vastauksen botti-alueella
-const RENDER_URL = 'https://portfolio-rag-9qi2.onrender.com';
+const RENDER_URL = 'https://portfolio-rag-ingest.onrender.com';
 
 function lahetaKysymys(inputId, vastausId) {
     const input = document.getElementById(inputId);
@@ -431,10 +431,10 @@ function lahetaKysymys(inputId, vastausId) {
     input.value = '';
     input.disabled = true;
 
-    fetch(`${RENDER_URL}/kysy`, {
+    fetch(`${RENDER_URL}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ kysymys, teema })
+        body: JSON.stringify({ kysymys })
     })
     .then(res => res.json())
     .then(data => {
