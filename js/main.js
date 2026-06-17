@@ -434,7 +434,7 @@ function lahetaKysymys(inputId, vastausId) {
     fetch(`${RENDER_URL}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ kysymys })
+        body: JSON.stringify({ kysymys, teema })
     })
     .then(res => res.json())
     .then(data => {
