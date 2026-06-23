@@ -377,7 +377,6 @@ document.getElementById('adminTallenna').addEventListener('click', () => {
         }
     })
     .catch(err => {
-        console.error('Virhe tallennuksessa:', err);
         alert('Tallennus epäonnistui.');
     });
 });
@@ -420,7 +419,8 @@ function lahetaKysymys(inputId, vastausId) {
     const vastausEl = document.getElementById(vastausId);
 
     // Näytetään latausviesti
-    vastausEl.textContent = '...';
+    //vastausEl.textContent = '...';
+    vastausEl.innerHTML = '<span class="lataus-pisteet"><span></span><span></span><span></span></span>';
     input.value = '';
     input.disabled = true;
 
