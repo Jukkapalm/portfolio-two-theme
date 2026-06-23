@@ -126,11 +126,6 @@ const toggleBtn = document.querySelectorAll('.theme-toggle-btn');
 toggleBtn.forEach(btn => {
     btn.addEventListener('click', () => {
 
-        // Pysäytetään typewriter heti napin painalluksesta
-        if (typeWriterTimer) {
-            clearInterval(typeWriterTimer);
-            typeWriterTimer = null;
-        }
         document.getElementById('bottiAloitusViesti').textContent = '';
 
         const isCyber = document.documentElement.getAttribute('data-theme') === 'cyberpunk';
@@ -156,8 +151,6 @@ toggleBtn.forEach(btn => {
                 node_color = 'rgba(0, 168, 120,';
                 line_color = 'rgba(0, 168, 120,';
                 toggleBtn.forEach(b => b.textContent = 'Duality');
-                document.getElementById('bottiAloitusViesti').textContent = 'Hei! Olen AI-avustaja, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.';
-                document.getElementById('bottiAloitusViestiMobiili').textContent = 'Hei! Olen AI-avustaja, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.';
                 document.getElementById('bottiNimi').textContent = 'AI-avustaja';
                 document.getElementById('bottiEmoji').textContent = '🤖';
                 document.getElementById('bottiNimiMobiili').textContent = 'AI-avustaja';
@@ -169,7 +162,6 @@ toggleBtn.forEach(btn => {
                 node_color = 'rgba(0, 255, 238,';
                 line_color = 'rgba(0, 255, 238,';
                 toggleBtn.forEach(b => b.textContent = 'Duality');
-                document.getElementById('bottiAloitusViestiMobiili').textContent = 'Jälleen yksi ihminen jolle pitää alkaa portfoliosta tai projekteista selittämään, minulla olisi muutakin tekemistä. Mitä haluat?';
                 document.getElementById('bottiNimi').textContent = 'Fixer';
                 document.getElementById('bottiNimiMobiili').textContent = 'Fixer';
                 document.getElementById('bottiEmoji').textContent = '⚡';
@@ -188,8 +180,10 @@ toggleBtn.forEach(btn => {
                 // Typewriter vasta kun palkki on poistunut
                 if (isCyber) {
                     typeWriter('bottiAloitusViesti', 'Hei! Olen AI-avustaja, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.');
+                    typeWriter('bottiAloitusViestiMobiili', 'Hei! Olen AI-avustaja, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.');
                 } else {
-                    typeWriter('bottiAloitusViesti', 'Jälleen yksi ihminen jolle pitää alkaa portfoliosta tai projekteista selittämään, minulla olisi muutakin tekemistä. Mitä haluat?', 40);
+                    typeWriter('bottiAloitusViesti', 'Jälleen yksi ihminen jolle pitää alkaa portfoliosta tai projekteista selittämään, minulla olisi muutakin tekemistä. Mitä haluat?', 15);
+                     typeWriter('bottiAloitusViestiMobiili', 'Jälleen yksi ihminen jolle pitää alkaa portfoliosta tai projekteista selittämään, minulla olisi muutakin tekemistä. Mitä haluat?', 15);
                 }
             }, 400);
         }, 500);
@@ -392,25 +386,24 @@ document.getElementById('adminTallenna').addEventListener('click', () => {
 haeBlogiMerkinnat();
 
 // Typewriter kirjoitus
-let typeWriterTimer = null;
-
-function typeWriter(elementId, teksti, nopeus = 30) {
-    if (typeWriterTimer) clearInterval(typeWriterTimer);
+function typeWriter(elementId, teksti, nopeus = 15) {
     const el = document.getElementById(elementId);
+    if (!el) return;
     el.textContent = '';
     let i = 0;
-    typeWriterTimer = setInterval(() => {
-        el.textContent += teksti[i];
-        i++;
-        if (i >= teksti.length) {
-            clearInterval(typeWriterTimer);
-            typeWriterTimer = null;
+    const timer = setInterval(() => {
+        if (i < teksti.length) {
+            el.textContent += teksti[i];
+            i++;
+        } else {
+            clearInterval(timer);
         }
     }, nopeus);
 }
 
 // Käynnistetään typewriter sivun latautuessa
 typeWriter('bottiAloitusViesti', 'Hei! Olen AI-avustaja, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.');
+typeWriter('bottiAloitusViestiMobiili', 'Hei! Olen AI-avustaja, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.');
 
 // RAG-tekoäly botti
 // Lähettää kysymyksen Flask backendille ja
@@ -439,7 +432,7 @@ function lahetaKysymys(inputId, vastausId) {
     .then(res => res.json())
     .then(data => {
         if (data.vastaus) {
-            vastausEl.textContent = data.vastaus;
+            typeWriter(vastausId, data.vastaus);
         } else {
             vastausEl.textContent = 'Virhe: ' + (data.virhe || 'Tuntematon virhe');
         }
