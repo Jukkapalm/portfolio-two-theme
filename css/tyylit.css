@@ -781,6 +781,9 @@ body {
         height: 100vh;
         margin-top: 0;
     }
+    .botti-tekstikentta {
+        font-size: 16px;
+    }
 }
 
 /* Animaatiot */
