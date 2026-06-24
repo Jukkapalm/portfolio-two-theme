@@ -303,29 +303,6 @@ body {
     margin-bottom: 0.75rem;
 }
 
-/* Botin kommentti */
-.blogi-kommentti {
-    border-left: 2px solid #00A878;
-    padding-left: 0.75rem;
-    margin-top: 0.5rem;
-}
-
-.kommentti-nimi {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.75rem;
-    color: #00A878;
-    font-weight: 600;
-    display: block;
-    margin-bottom: 0.25rem;
-}
-
-.kommentti-text {
-    font-family: 'DM Sans', sans-serif;
-    font-size: clamp(0.8rem, 1.2vw, 0.9rem);
-    color: rgba(26, 26, 26, 0.7);
-    margin: 0;
-}
-
 /* Botti alue */
 .botti-alue {
     height: 35vh;
@@ -705,20 +682,6 @@ body {
 
 [data-theme="cyberpunk"] .blogi-text {
     color: #00FFEE;
-    font-family: 'Share Tech Mono', serif;
-}
-
-[data-theme="cyberpunk"] .blogi-kommentti {
-    border-left: 2px solid #FF00AA;
-}
-
-[data-theme="cyberpunk"] .kommentti-nimi {
-    color: #FF00AA;
-    font-family: 'Chakra Petch', serif;
-}
-
-[data-theme="cyberpunk"] .kommentti-text {
-    color: #FF00AA;
     font-family: 'Share Tech Mono', serif;
 }
 
