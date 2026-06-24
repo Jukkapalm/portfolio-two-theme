@@ -472,5 +472,14 @@ document.querySelectorAll('.projekti-suodatin').forEach(btn => {
         btn.classList.add('aktiivinen');
 
         const suodatin = btn.getAttribute('data-suodatin');
+
+        // Näytetään tai piilotetaan projektikortit
+        document.querySelectorAll('.projekti-kortti').forEach(kortti => {
+            if (suodatin === 'kaikki' || kortti.getAttribute('data-kategoria') === suodatin) {
+                kortti.style.display = '';
+            } else {
+                kortti.style.display = 'none';
+            }
+        });
     });
 });
