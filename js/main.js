@@ -419,7 +419,6 @@ function lahetaKysymys(inputId, vastausId) {
     const vastausEl = document.getElementById(vastausId);
 
     // Näytetään latausviesti
-    //vastausEl.textContent = '...';
     vastausEl.innerHTML = '<span class="lataus-pisteet"><span></span><span></span><span></span></span>';
     input.value = '';
     input.disabled = true;
@@ -460,4 +459,18 @@ document.getElementById('bottiLahetaMobiili').addEventListener('click', () => {
 
 document.getElementById('bottiInputMobiili').addEventListener('keydown', (e) => {
     if (e.key === 'Enter') lahetaKysymys('bottiInputMobiili', 'bottiAloitusViestiMobiili');
+});
+
+// Projektien suodatus
+document.querySelectorAll('.projekti-suodatin').forEach(btn => {
+    btn.addEventListener('click', () => {
+
+        // Poistetaan aktiivinen luokka kaikilta napeilta
+        document.querySelectorAll('.projekti-suodatin').forEach(b => b.classList.remove('aktiivinen'));
+
+        // Lisätään aktiivinen luokka painetulle napille
+        btn.classList.add('aktiivinen');
+
+        const suodatin = btn.getAttribute('data-suodatin');
+    });
 });
