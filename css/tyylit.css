@@ -518,6 +518,58 @@ body {
     color: #00A878;
 }
 
+/* Projektikorttien CTA painikkeiden tyylit */
+.github-nappi {
+    background: transparent;
+    font-family: 'DM Sans', sans-serif;
+    color: #1A1A1A;
+    border: 1px solid rgba(26, 26, 26, 0.2);
+    border-radius: 4px;
+    padding: 0.4rem 0.7rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.demo-nappi {
+    background: #00A878;
+    font-family: 'DM Sans', sans-serif;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.4rem 0.7rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.github-nappi:hover {
+    color: #00A878;
+    border: 1px solid #00A878;
+}
+.demo-nappi:hover {
+    background: #008f65;
+    color: white;
+}
+
+[data-theme="cyberpunk"] .github-nappi {
+    background: transparent;
+    font-family: 'Share Tech Mono', serif;
+    color: #00FFEE;
+    border: 1px solid #00FFEE;
+}
+
+[data-theme="cyberpunk"] .demo-nappi {
+    background: #00CCCC;
+    font-family: 'Share Tech Mono', serif;
+}
+
+[data-theme="cyberpunk"] .github-nappi:hover {
+    color: #FF00AA;
+    border: 1px solid #FF00AA;
+}
+
+[data-theme="cyberpunk"] .demo-nappi:hover {
+    background: #FF00AA;
+    color: white;
+}
+
 /* Cyberpunk teema */
 [data-theme="cyberpunk"] body {
     background: #0A0A0A;
