@@ -13,11 +13,8 @@
         <!-- Fontit -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
 
         <!-- Teknologia ikonit -->
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
@@ -35,12 +32,14 @@
             <div class="container-fluid px-4">
 
                 <!-- Navbar nimi/logo -->
-                <a class="navbar-brand" href="#">Jukka Palm</a>
+                <a class="navbar-brand" href="#">
+                    <span class="kirjain">J</span>UKKA <span class="kirjain">P</span>ALM
+                </a>
 
                 <!-- Teeman vaihto button - kaksi buttonia joista toinen näkyy mobiilissa ja toinen isommilla näytöillä -->
                 <!-- Tämä piilossa isommilla näytöillä -->
                 <button class="theme-toggle-btn d-lg-none me-2" id="themeToggleMobile" aria-label="Vaihda teemaa">
-                    Duality
+                    Mode
                 </button>
 
                 <!-- Hamburgermenu button -->
@@ -54,7 +53,7 @@
                         <li class="nav-item d-none d-lg-flex align-items-center">
                             <!-- Teeman vaihto button - tämä puolestaan piilossa pienemmillä näytöillä -->
                             <button class="theme-toggle-btn" id="themeToggle" aria-label="Vaihda teemaa">
-                                Duality
+                                Mode
                             </button>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="#minusta">Minusta</a></li>
@@ -100,19 +99,19 @@
                             <!-- Botin header - nimi ja emoji -->
                             <div class="botti-header">
                                 <span class="botti-emoji" id="bottiEmoji">🤖</span>
-                                <span class="botti-nimi" id="bottiNimi">AI-avustaja</span>
+                                <span class="botti-nimi" id="bottiNimi">Automated AI-Operating System</span>
                             </div>
 
                             <!-- Keskustelu historia - kasvaa ylöspäin -->
                             <div class="botti-viestit" id="bottiViestit">
                                 <div class="botti-viesti">
-                                    <p class="viesti-teksti" id="bottiAloitusViesti">Hei! Olen AI-avustaja, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.</p>
+                                    <p class="viesti-teksti" id="bottiAloitusViesti">Järjestelmä alustettu. Tervetuloa A.A.O.S - ympäristöön. Järjestelmä optimoitu tarjoamaan tarkkaa tietoa Jukka Palmin ohjelmistokehityksestä, sovelluksista, teknisestä osaamisesta, portfoliosta ja koulutuksesta. Kaikki arkistot käytettävissänne. Syötä komento aloittaaksesi analyysin.</p>
                                 </div>
                             </div>
 
                             <!-- Input tekstikenttä ja lähetysnappi -->
                             <div class="botti-input">
-                                <input type="text" class="botti-tekstikentta" id="bottiInput" placeholder="Kysy jotain..." maxlength="500">
+                                <input type="text" class="botti-tekstikentta" id="bottiInput" placeholder="Anna syöte..." maxlength="500">
                                 <button class="botti-nappi" id="bottiLaheta" aria-label="Lähetä viesti">➤</button>
                             </div>
                         </div>
@@ -148,7 +147,9 @@
                                 </div>
 
                                 <div class="col-12 col-lg-10">
-                                    <h1 class="iso-otsikko">Jukka Palm</h1>
+                                    <h1 class="iso-otsikko">
+                                        <span class="kirjain">J</span>UKKA <span class="kirjain">P</span>ALM
+                                    </h1>
                                     <h2 class="otsikko">Software Development Student</h2>
                                     <p class="leipateksti">
                                         Tieto- ja viestintätekniikan opiskelija - sinne tie kulki uteliaisuuden kautta.
@@ -177,10 +178,12 @@
                         <section class="tech-stack" id="teknologiat">
                             <div class="row justify-content-center">
                                 <div class="col-12 col-lg-10">
-                                    <h2 class="iso-otsikko">Teknologiat</h2>
+                                    <h2 class="iso-otsikko">
+                                        <span class="kirjain">T</span>EKNOLOGIAT
+                                    </h2>
 
                                     <div class="row justify-content-center g-3">
-                                        <p class="stack-cat-label mb-1">Frontend</p>
+                                        <h5 class="stack-cat-label mb-1">Frontend</h5>
                                         <div class="col-auto m-1">
                                             <div class="tech-badge" style="--badge-color: #68217a;">
                                                 <i class="devicon-csharp-plain colored fs-3"></i>
@@ -207,7 +210,7 @@
                                         </div>
                                     </div>
                                     <div class="row justify-content-center g-3">
-                                        <p class="stack-cat-label mb-1">Backend</p>
+                                        <h5 class="stack-cat-label mb-1">Backend</h5>
                                         <div class="col-auto m-1">
                                             <div class="tech-badge" style="--badge-color: #777bb4;">
                                                 <i class="devicon-php-plain colored fs-3"></i>
@@ -222,7 +225,7 @@
                                         </div>
                                     </div>
                                     <div class="row justify-content-center g-3">
-                                        <p class="stack-cat-label mb-1">Frameworkit & Kirjastot</p>
+                                        <h5 class="stack-cat-label mb-1">Frameworkit & Kirjastot</h5>
                                         <div class="col-auto m-1">
                                             <div class="tech-badge" style="--badge-color: #7952b3;">
                                                 <i class="devicon-bootstrap-plain colored fs-3"></i>
@@ -243,7 +246,7 @@
                                         </div>
                                     </div>
                                     <div class="row justify-content-center g-3">
-                                        <p class="stack-cat-label mb-1">Muut työkalut</p>
+                                        <h5 class="stack-cat-label mb-1">Muut työkalut</h5>
                                         <div class="col-auto m-1">
                                             <div class="tech-badge" style="--badge-color: #F05032;">
                                                 <i class="devicon-git-plain colored fs-3"></i>
@@ -280,7 +283,9 @@
                         <section class="projektit" id="projektit">
                             <div class="row justify-content-center">
                                 <div class="col-12 col-lg-10">
-                                    <h2 class="iso-otsikko" style="margin-bottom: 2rem;">Projektit</h2>
+                                    <h2 class="iso-otsikko" style="margin-bottom: 2rem;">
+                                        <span class="kirjain">P</span>ROJEKTIT
+                                    </h2>
 
                                     <!-- Projekti suodattimet -->
                                     <div class="d-flex flex-wrap mb-3">
@@ -353,7 +358,9 @@
                         <section class="koulutus" id="koulutus">
                             <div class="row justify-content-center">
                                 <div class="col-12 col-lg-10">
-                                    <h2 class="iso-otsikko" style="margin-bottom: 2rem;">Koulutus</h2>
+                                    <h2 class="iso-otsikko" style="margin-bottom: 2rem;">
+                                        <span class="kirjain">K</span>OULUTUS
+                                    </h2>
                                     <div class="card">
                                         <h4 class="otsikko">Tieto- ja viestintätekniikan perustutkinto</h4>
                                         <p class="leipateksti">2025 - nykyhetki</p>
@@ -388,7 +395,7 @@
                                                     - REST-rajapinnat</p>
                                             </div>
                                             <div class="col-12 col-md-6">
-                                                <p class="leipateksti"><span class="fw-bold kurssi">Johdatus tekoälyyn, käynnissä:</span><br>
+                                                <p class="leipateksti"><span class="fw-bold kurssi">Johdatus tekoälyyn, suoritettu:</span><br>
                                                     - Tekoälyn määritelmät<br>
                                                     - Koneoppiminen, datatiede ja robotiikka<br>
                                                     - Tekoälyn filosofiaa<br>
@@ -409,7 +416,9 @@
                         <section class="currently" id="building">
                             <div class="row justify-content-center">
                                 <div class="col-12 col-lg-10">
-                                    <h2 class="iso-otsikko" style="margin-bottom: 2rem;">Currently building</h2>
+                                    <h2 class="iso-otsikko" style="margin-bottom: 2rem;">
+                                        <span class="kirjain">C</span>URRENTLY <span class="kirjain">B</span>UILDING
+                                    </h2>
                                     <div class="card">
                                         <div class="current-status">
                                             <p class="status-dot leipateksti"></p>
@@ -468,15 +477,15 @@
                         <div class="botti-alue" style="height: auto; border-top: none;">
                             <div class="botti-header">
                                 <span class="botti-emoji" id="bottiEmojiMobiili">🤖</span>
-                                <span class="botti-nimi" id="bottiNimiMobiili">AI-avustaja</span>
+                                <span class="botti-nimi" id="bottiNimiMobiili">Automated AI-Operating System</span>
                             </div>
                             <div class="botti-viestit" style="height: 200px;">
                                 <div class="botti-viesti">
-                                    <p class="viesti-teksti" id="bottiAloitusViestiMobiili">Hei! Olen AI-avustaja, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.</p>
+                                    <p class="viesti-teksti" id="bottiAloitusViestiMobiili">Järjestelmä alustettu. Tervetuloa A.A.O.S - ympäristöön. Järjestelmä optimoitu tarjoamaan tarkkaa tietoa Jukka Palmin ohjelmistokehityksestä, sovelluksista, teknisestä osaamisesta, portfoliosta ja koulutuksesta. Kaikki arkistot käytettävissänne. Syötä komento aloittaaksesi analyysin.</p>
                                 </div>
                             </div>
                             <div class="botti-input">
-                                <input type="text" class="botti-tekstikentta" id="bottiInputMobiili" placeholder="Kysy jotain..." maxlength="500">
+                                <input type="text" class="botti-tekstikentta" id="bottiInputMobiili" placeholder="Anna syöte..." maxlength="500">
                                 <button class="botti-nappi" id="bottiLahetaMobiili" aria-label="Lähetä viesti">➤</button>
                             </div>
                         </div>
