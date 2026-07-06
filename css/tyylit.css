@@ -8,8 +8,7 @@ html {
 }
 
 body {
-    background: linear-gradient(135deg, #FFFFFF 50%, #C2E8DC 100%);
-    background-attachment: fixed;
+    background: #FFFFFF;
     height: 100vh;
     width: 100vw;
     overflow-x: hidden;
@@ -17,61 +16,72 @@ body {
 
 /* Navbarin tyylit */
 .navbar {
-    background-color: #1C1C1C;
+    background-color: #F4F7F6;
+    border-bottom: 1px solid #E2E8F0;
 }
 
 /* Navbar nimi/logo */
 .navbar-brand {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Teko', sans-serif;
     font-size: clamp(1.4rem, 2.7vw, 1.8rem);
-    color: #00A878 !important;
+    color: #334155 !important;
     cursor: default;
+    font-weight: 700;
+}
+.navbar-brand .kirjain {
+    color: #0077FF;
 }
 
 /* Navigaatio linkit */
 .navbar-nav .nav-link {
-    color: #FAFAF7 !important;
-    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    color: #334155 !important;
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
     padding-left: 1rem;
     padding-right: 1rem;
-    transition: color 0.3s ease;
-    font-family: 'Syne', sans-serif;
+    transition: all 0.3s ease;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
 }
 .navbar-nav .nav-link:hover {
-    color: #00A878 !important;
+    color: #0077FF !important;
+    border-bottom: 1px solid #0077FF;
 }
 
 /* Aktiivinen navigaatio linkki */
 .navbar-nav .nav-link.active {
-    color: #00A878 !important;
+    color: #0077FF !important;
+    border-bottom: 1px solid #0077FF;
 }
 
 /* Teemanvaihto button */
 .theme-toggle-btn {
     background: transparent;
-    border: 1px solid #00A878;
-    color: #00A878;
-    font-size: clamp(0.85rem, 1.5vw, 1rem);
-    padding: 0.3rem 0.7rem;
+    border: 1px solid #FF3333;
+    color: #FF3333;
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    padding: 0.4rem 0.7rem;
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
     animation: pulse 2s ease-in-out infinite;
+    letter-spacing: 1px;
 }
 
 /* Hamburger menun asetukset */
 .navbar-toggler {
-    border-color: #00A878;
+    border-color: #0077FF;
     font-size: 1rem;
 }
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%2300A878' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%230077FF' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 /* Sivupalkki */
 .sidebar {
-    border-right: 1px solid #00A878;
+    border-right: 1px solid #E2E8F0;
     height: 100vh;
     top: 0;
     position: sticky;
@@ -88,18 +98,17 @@ body {
     background: #FFFFFF;
 }
 #mobileTabs .nav-link {
-    color: #1A1A1A;
-    font-family: 'Syne', sans-serif;
-    letter-spacing: 0.05em;
-    font-weight: 500;
+    color: #334155;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(0.8rem, 3vw, 0.95rem);
-    border-radius: 0;
-    border-bottom: 1px solid #00A878;
+    border-radius: 2px;
+    border-bottom: 1px solid #0077FF;
+    font-weight: 500;
 }
 
 #mobileTabs .nav-link.active {
-    color: #00A878;
-    border-color: #00A878 #00A878 transparent #00A878;
+    color: #0077FF;
+    border-color: #0077FF #0077FF transparent #0077FF;
 }
 
 .main-content {
@@ -133,37 +142,44 @@ body {
 }
 
 .iso-otsikko {
-    font-family: 'Syne', sans-serif;
-    color: #1A1A1A;
+    font-family: 'Teko', sans-serif;
+    font-weight: bold;
+    color: #334155;
     margin-top: 2rem;
+    letter-spacing: 1px;
+}
+.iso-otsikko .kirjain {
+    color: #0077FF;
 }
 
 .otsikko {
-    font-family: 'Syne', sans-serif;
-    color: #00A878;
+    font-family: 'Space Grotesk', sans-serif;
+    color: #334155;
+    font-weight: bold;
 }
 
 .leipateksti {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
+    color: #334155;
 }
 
 .section-sep {
     width: 200px;
     height: 3px;
-    background: linear-gradient(90deg, #FFFFFF, #00A878);
+    background: linear-gradient(90deg, #FFFFFF, #0077FF);
     border-radius: 3px;
     margin: 3rem 0rem;
 }
 
 .stack-cat-label {
-    font-family: 'Syne', sans-serif;
-    color: #1A1A1A;
-    letter-spacing: 0.18em;
+    font-family: 'Space Grotesk', sans-serif;
+    color: #334155;
+    letter-spacing: 1px;
     margin-top: 2rem;
 }
 
 .tech-badge {
-    background: transparent;
+    background: #F4F7F6;
     border: 1px solid rgba(26, 26, 26, 0.2);
     padding: 10px;
     border-radius: 5px;
@@ -172,7 +188,8 @@ body {
     align-items: center;
     min-width: 110px;
     cursor: default;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -183,7 +200,7 @@ body {
 .tech-badge:hover {
     transform: scale(1.01);
     border-color: var(--badge-color);
-    box-shadow: 0 0 10px var(--badge-color);
+    box-shadow: 0 4px 12px var(--badge-color);
 }
 
 .tech-badge:hover i {
@@ -191,17 +208,18 @@ body {
 }
 
 .card {
-    background: transparent;
+    background: #F4F7F6;
     border: 1px solid rgba(26, 26, 26, 0.2);
     border-radius: 5px;
     padding: 1.5rem 2rem;
     margin-bottom: 1.5rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+    transition: all 0.3s ease;
 }
 
 .card:hover {
-    border: 1px solid #00A878;
-    box-shadow: 0 0 5px #00A878;
+    transform: scale(1.01);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.2);
 }
 
 /* "In progress" - indikaattori*/
@@ -228,7 +246,8 @@ body {
 }
 
 .tag {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
+    color: #0077FF;
     font-size: 0.65rem;
     padding: 0.25rem 0.65rem;
     border-radius: 3px;
@@ -237,19 +256,21 @@ body {
 
 /* Footerin tyylit */
 .footer {
-    border-top: 1px solid rgba(26, 26, 26, 0.15);
+    background: #F4F7F6;
+    border-top: 1px solid #E2E8F0;
     margin-top: 2rem;
 }
 
 .footer-nimi {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(0.85rem, 1.5vw, 1rem);
-    color: #1A1A1A;
-    letter-spacing: 0.05em;
+    color: #334155;
+    font-weight: 500;
+    letter-spacing: 1px;
 }
 
 .footer-tech {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Space Grostesk', sans-serif;
     font-size: clamp(0.75rem, 1.2vw, 0.85rem);
     color: rgba(26, 26, 26, 0.6);
 }
@@ -261,14 +282,14 @@ body {
 }
 
 .footer-linkit a {
-    color: #1A1A1A;
+    color: #334155;
     font-size: 1.5rem;
     transition: color 0.3s ease, transform 0.3s ease;
     text-decoration: none;
 }
 
 .footer-linkit a:hover {
-    color: #00A878;
+    color: #0077FF;
     transform: scale(1.1);
 }
 
@@ -281,25 +302,28 @@ body {
 
 /* Yksittäinen blogi kortti */
 .blogi-kortti {
+    background: #F4F7F6;
     border: 1px solid rgba(26, 26, 26, 0.15);
-    border-radius: 5px;
+    border-radius: 4px;
     padding: 1rem;
     margin-bottom: 1rem;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
 }
 
 /* Blogi kortin päivämäärä */
 .blogi-pvm {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
     font-size: 0.75rem;
-    color: rgba(26, 26, 26, 0.5);
+    color: #0077FF;
     margin-bottom: 0.5rem;
 }
 
 /* Blogi merkinnät teksti */
 .blogi-text {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(0.85rem, 1.5vw, 0.95rem);
-    color: #1A1A1A;
+    color: #334155;
     margin-bottom: 0.75rem;
 }
 
@@ -309,7 +333,7 @@ body {
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
-    border-top: 1px solid rgba(26, 26, 26, 0.15);
+    border-top: 1px solid #E2E8F0;
     padding: 0.75rem 1rem;
 }
 
@@ -326,10 +350,11 @@ body {
 }
 
 .botti-nimi {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(0.85rem, 1.5vw, 1rem);
-    color: #00A878;
-    font-weight: 600;
+    color: #0077FF;
+    font-weight: 500;
+    letter-spacing: 1px;
 }
 
 /* Viestialue — scrollaa kun täyttyy */
@@ -344,9 +369,9 @@ body {
 }
 
 .viesti-teksti {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(0.8rem, 1.2vw, 0.9rem);
-    color: #1A1A1A;
+    color: #334155;
     margin: 0;
 }
 
@@ -361,20 +386,20 @@ body {
     padding: 0.4rem 0.7rem;
     border: 1px solid rgba(26, 26, 26, 0.2);
     border-radius: 4px;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(0.8rem, 1.2vw, 0.9rem);
     background: transparent;
-    color: #1A1A1A;
+    color: #334155;
     outline: none;
 }
 
 .botti-tekstikentta:focus {
-    border-color: #00A878;
+    border-color: #0077FF;
 }
 
 .botti-nappi {
-    background: #00A878;
-    color: white;
+    background: #0077FF;
+    color: #FFFFFF;
     border: none;
     border-radius: 4px;
     padding: 0.4rem 0.7rem;
@@ -383,7 +408,7 @@ body {
 }
 
 .botti-nappi:hover {
-    background: #008f65;
+    background: rgba(0, 119, 255, 0.5);
 }
 
 /* Teeman vaihdon pyyhkäisy palkki */
@@ -407,11 +432,11 @@ body {
     transition: left 0.4s ease;
 }
 
-.teema-palkki.cyber-in {
-    background: #0A0A0A;
+.teema-palkki.dark {
+    background: #0A0D0B;
 }
 
-.teema-palkki.default-in {
+.teema-palkki.default {
     background: #FFFFFF;
 }
 
@@ -422,23 +447,26 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #E0E0E0;
+    background: transparent;
+    backdrop-filter: blur(3px);
     z-index: 9999;
     align-items: center;
     justify-content: center;
 }
 
 .admin-modal-box {
-    background: #FFFFFF;
-    border: 1px solid #00A878;
+    background: #F4F7F6;
+    border: 2px solid #0077FF;
     border-radius: 5px;
     padding: 2rem;
     max-width: 400px;
 }
 
 .admin-modal-otsikko {
-    font-family: 'Syne', sans-serif;
-    color: #00A878;
+    font-family: 'Teko', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #0077FF;
     margin-bottom: 1rem;
 }
 
@@ -446,18 +474,20 @@ body {
     width: 100%;
     margin-bottom: 1rem;
     resize: none;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 .admin-modal-napit {
     display: flex;
     gap: 0.5rem;
     justify-content: flex-end;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 .admin-modal-peruuta {
     background: transparent;
-    border: 1px solid #00A878;
-    color: #00A878;
+    border: 1px solid #0077FF;
+    color: #0077FF;
 }
 
 /* Botin vastauksen lataus animaatio - pisteet pomppivat */
@@ -487,332 +517,323 @@ body {
     background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 168, 120, 0.6);
+    background-color: rgba(0, 119, 255, 0.6);
     border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(0, 168, 120, 1);
+    background-color: rgba(0, 119, 255, 1);
 }
 
 /* Projekti suodattimet */
 .projekti-suodatin {
     background: transparent;
     border: none;
-    border-bottom: 2px solid #00A878;
-    color: #1A1A1A;
+    border-bottom: 1px solid #0077FF;
+    color: #334155;
     padding: 0.4rem 1rem;
     cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 1rem;
     transition: border-color 0.2s, color 0.2s;
     margin-bottom: 0.5rem;
+    border-radius: 2px;
 }
 
 .projekti-suodatin:hover {
-    color: #00A878;
+    color: #0077FF;
 }
 
 .projekti-suodatin.aktiivinen {
-    border: 2px solid #00A878;
+    border: 1px solid #0077FF;
     border-bottom-color: transparent;
-    color: #00A878;
+    color: #0077FF;
 }
 
 /* Projektikorttien CTA painikkeiden tyylit */
 .github-nappi {
     background: transparent;
-    font-family: 'DM Sans', sans-serif;
-    color: #1A1A1A;
-    border: 1px solid rgba(26, 26, 26, 0.2);
+    font-family: 'Space Grotesk', sans-serif;
+    color: #0077FF;
+    border: 1px solid #0077FF;
     border-radius: 4px;
     padding: 0.4rem 0.7rem;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 .demo-nappi {
-    background: #00A878;
-    font-family: 'DM Sans', sans-serif;
-    color: white;
-    border: none;
+    background: transparent;
+    font-family: 'Space Grotesk', sans-serif;
+    color: #0077FF;
+    border: 1px solid #0077FF;
     border-radius: 4px;
     padding: 0.4rem 0.7rem;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 .github-nappi:hover {
-    color: #00A878;
-    border: 1px solid #00A878;
+    color: #FFFFFF;
+    background: #FF3333;
 }
 .demo-nappi:hover {
-    background: #008f65;
-    color: white;
-}
-
-[data-theme="cyberpunk"] .github-nappi {
-    background: transparent;
-    font-family: 'Share Tech Mono', serif;
-    color: #00FFEE;
-    border: 1px solid #00FFEE;
-}
-
-[data-theme="cyberpunk"] .demo-nappi {
-    background: #00CCCC;
-    font-family: 'Share Tech Mono', serif;
-}
-
-[data-theme="cyberpunk"] .github-nappi:hover {
-    color: #FF00AA;
-    border: 1px solid #FF00AA;
-}
-
-[data-theme="cyberpunk"] .demo-nappi:hover {
-    background: #FF00AA;
-    color: white;
-}
-
-/* Cyberpunk teema */
-[data-theme="cyberpunk"] body {
-    background: #0A0A0A;
-}
-
-[data-theme="cyberpunk"] .navbar {
-    background: #111118;
-    border-bottom: 1px solid #FF00AA;
-    box-shadow: 0 0 15px #FF00AA;
-}
-
-[data-theme="cyberpunk"] .navbar-brand {
-    font-family: 'Chakra Petch', serif;
-    letter-spacing: 0.05em;
-    color: #FFE600 !important;
-    font-weight: 500;
-    text-shadow: 0 0 10px, 0 0 20px #FFE600;
-    animation: glitch 4s infinite;
-}
-
-[data-theme="cyberpunk"] .navbar-nav .nav-link {
-    font-family: 'Chakra Petch', serif;
-    color: #FFE600 !important;
-    letter-spacing: 0.05em;
-}
-
-[data-theme="cyberpunk"] .navbar-nav .nav-link:hover {
-    color: #FF00AA !important;
-}
-
-[data-theme="cyberpunk"] .navbar-nav .nav-link.active {
-    color: #FF00AA !important;
-}
-
-[data-theme="cyberpunk"] .theme-toggle-btn {
-    border: 1px solid #FF00AA;
-    color: #FF00AA;
-    font-family: 'Chakra Petch', serif;
-}
-
-[data-theme="cyberpunk"] .navbar-toggler {
-    border-color: #FF00AA;
-}
-
-[data-theme="cyberpunk"] .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23FF00AA' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-
-[data-theme="cyberpunk"] .sidebar {
-    border-right: 1px solid #FF00AA;
-}
-
-[data-theme="cyberpunk"] #mobileTabs-wrapper {
-    background: #0A0A0A;
-}
-
-[data-theme="cyberpunk"] #mobileTabs .nav-link {
-    font-family: 'Chakra Petch', serif;
-    background: #0A0A0A;
-    color: #00FFEE;
-    border-bottom: 1px solid #00FFEE;
-}
-
-[data-theme="cyberpunk"] #mobileTabs .nav-link.active {
-    border-color: #00FFEE #00FFEE transparent #00FFEE;
-}
-
-[data-theme="cyberpunk"] .esittely img {
-    filter: saturate(0) contrast(1.5) brightness(0.5);
-}
-
-[data-theme="cyberpunk"] .iso-otsikko {
-    font-family: 'Chakra Petch', serif;
-    color: #FFE600;
-}
-
-[data-theme="cyberpunk"] .otsikko {
-    font-family: 'Orbitron', serif;
-    font-size: clamp(1.2rem, 2vw, 1.5rem);
-    letter-spacing: 0.05em;
-    color: #00FFEE;
-}
-
-[data-theme="cyberpunk"] .leipateksti {
-    color: #E0E0E0;
-    font-family: 'Share Tech Mono', serif;
-    letter-spacing: 0.05em;
-}
-
-[data-theme="cyberpunk"] .section-sep {
-    background: linear-gradient(90deg, #0A0A0A, #FF00AA);
-}
-
-[data-theme="cyberpunk"] .stack-cat-label {
-    font-family: 'Orbitron', serif;
-    color: #00FFEE;
-}
-
-[data-theme="cyberpunk"] .tech-badge {
-    font-family: 'Share Tech Mono', serif;
-    color: #E0E0E0;
-    letter-spacing: 0.05em;
-    background: #111118;
-}
-
-[data-theme="cyberpunk"] .card {
-    background: #111118;
-}
-
-[data-theme="cyberpunk"] .card:hover {
-    border: 1px solid #FF00AA;
-    box-shadow: 0 0 5px #FF00AA;
-}
-
-[data-theme="cyberpunk"] .status-text {
-    color: #E0E0E0;
-    font-family: 'Share Tech Mono', serif;
-    letter-spacing: 0.05em;
-}
-
-[data-theme="cyberpunk"] .kurssi {
-    color: #00FFEE;
-}
-
-[data-theme="cyberpunk"] .tag {
-    border: 1px solid #00FFEE;
-    color: #00FFEE;
-    font-family: 'Share Tech Mono', serif;
-    letter-spacing: 0.05em;
-}
-
-[data-theme="cyberpunk"] .footer {
-    border-top: 1px solid #FF00AA;
-}
-
-[data-theme="cyberpunk"] .footer-nimi {
-    font-family: 'Orbitron', serif;
-    color: #00FFEE;
-}
-
-[data-theme="cyberpunk"] .footer-tech {
-    font-family: 'Share Tech Mono', serif;
-    color: #E0E0E0;
-}
-
-[data-theme="cyberpunk"] .footer-linkit a {
-    color: #00FFEE;
-}
-
-[data-theme="cyberpunk"] .footer-linkit a:hover {
-    color: #FF00AA;
-}
-
-[data-theme="cyberpunk"] .blogi-kortti {
-    background: #111118;
-}
-
-[data-theme="cyberpunk"] .blogi-pvm {
-    font-family: 'Share Tech Mono', serif;
-    color: #00FFEE;
-}
-
-[data-theme="cyberpunk"] .blogi-text {
-    color: #00FFEE;
-    font-family: 'Share Tech Mono', serif;
-}
-
-[data-theme="cyberpunk"] .botti-alue {
-    border-top: 1px solid #FF00AA;
-}
-
-[data-theme="cyberpunk"] .botti-nimi {
-    font-family: 'Chakra Petch', serif;
-    color: #00FFEE;
-}
-
-[data-theme="cyberpunk"] .viesti-teksti {
-    font-family: 'Share Tech Mono', serif;
-    color: #E0E0E0;
-}
-
-[data-theme="cyberpunk"] .botti-tekstikentta {
-    border-color: rgba(0, 255, 238, 0.3);
-    color: #E0E0E0;
-    background: #111118;
-    font-family: 'Share Tech Mono', serif;
-}
-
-[data-theme="cyberpunk"] .botti-tekstikentta:focus {
-    border-color: #00FFEE;
-}
-
-[data-theme="cyberpunk"] .botti-nappi {
-    background: #00CCCC;
-}
-
-[data-theme="cyberpunk"] .botti-nappi:hover {
-    background: #00FFEE;
+    background: #FF3333;
     color: #FFFFFF;
 }
 
-[data-theme="cyberpunk"] .admin-modal-overlay {
-    background-color: #0A0A0A;
+/* Tumma teema */
+[data-theme="dark-theme"] body {
+    background: #0A0D0B;
 }
 
-[data-theme="cyberpunk"] .admin-modal-box {
-    background: #111118;
-    border-color: #00FFEE;
+[data-theme="dark-theme"] .navbar {
+    background: #121814;
+    border-bottom: 1px solid #222F28;
 }
 
-[data-theme="cyberpunk"] .admin-modal-otsikko {
-    color: #FFE600;
-    font-family: 'Chakra Petch', serif;
+[data-theme="dark-theme"] .navbar-brand {
+    color: #E2EBD5 !important;
+    animation: glitch 4s infinite;
 }
 
-[data-theme="cyberpunk"] .admin-modal-peruuta {
-    border-color: #00FFEE;
-    color: #00FFEE;
+[data-theme="dark-theme"] .navbar-brand .kirjain {
+    color: #FF3333;
+}
+
+[data-theme="dark-theme"] .navbar-nav .nav-link {
+    color: #E2EBD5 !important;
+}
+
+[data-theme="dark-theme"] .navbar-nav .nav-link:hover {
+    color: #FF3333 !important;
+    border-bottom: 1px solid #FF3333;
+}
+
+[data-theme="dark-theme"] .navbar-nav .nav-link.active {
+    color: #FF3333 !important;
+    border-bottom: 1px solid #FF3333;
+}
+
+[data-theme="dark-theme"] .navbar-toggler {
+    border-color: #FF3333;
+}
+
+[data-theme="dark-theme"] .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23E2EBD5' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+[data-theme="dark-theme"] .sidebar {
+    border-right: 1px solid #222F28;
+}
+
+[data-theme="dark-theme"] #mobileTabs-wrapper {
+    background: #0A0D0B;
+}
+
+[data-theme="dark-theme"] #mobileTabs .nav-link {
+    background: #0A0D0B;
+    color: #E2EBD5;
+    border-radius: 2px;
+    border-color: transparent transparent #FF3333 transparent;
+}
+
+[data-theme="dark-theme"] #mobileTabs .nav-link:hover {
+    color: #FF3333;
+}
+
+[data-theme="dark-theme"] #mobileTabs .nav-link.active {
+    color: #FF3333;
+    border: 1px solid #FF3333;
+    border-color: #FF3333 #FF3333 transparent #FF3333;
+}
+
+[data-theme="dark-theme"] .esittely img {
+    filter: saturate(0) contrast(1.5) brightness(0.5);
+}
+
+[data-theme="dark-theme"] .iso-otsikko {
+    color: #E2EBD5;
+}
+
+[data-theme="dark-theme"] .iso-otsikko .kirjain {
+    color: #FF3333;
+}
+
+[data-theme="dark-theme"] .otsikko {
+    color: #8FA499;
+}
+
+[data-theme="dark-theme"] .leipateksti {
+    color: #E2EBD5;
+}
+
+[data-theme="dark-theme"] .section-sep {
+    background: linear-gradient(90deg, #0A0A0A, #FF3333);
+}
+
+[data-theme="dark-theme"] .stack-cat-label {
+    color: #8FA499;
+}
+
+[data-theme="dark-theme"] .tech-badge {
+    color: #E2EBD5;
+    background: #121814;
+    box-shadow: none;
+}
+
+[data-theme="dark-theme"] .tech-badge:hover {
+    color: #E2EBD5;
+    background: #121814;
+    box-shadow: 0 4px 12px var(--badge-color);
+}
+
+[data-theme="dark-theme"] .card {
+    background: #121814;
+    box-shadow: 0 4px 12px rgba(57, 255, 20, 0.15);
+}
+
+[data-theme="dark-theme"] .card:hover {
+    background: #121814;
+    box-shadow: 0 8px 24px rgba(255, 51, 51, 0.2);
+}
+
+[data-theme="dark-theme"] .status-text {
+    color: #E2EBD5;
+}
+
+[data-theme="dark-theme"] .kurssi {
+    color: #8FA499;
+}
+
+[data-theme="dark-theme"] .tag {
+    border: 1px solid #8FA499;
+    color: #39FF14;
+}
+
+[data-theme="dark-theme"] .footer {
+    background: #121814;
+    border-top: 1px solid #222F28;
+}
+
+[data-theme="dark-theme"] .footer-nimi {
+    color: #FF3333;
+}
+
+[data-theme="dark-theme"] .footer-tech {
+    color: #E2EBD5;
+}
+
+[data-theme="dark-theme"] .footer-linkit a {
+    color: #E2EBD5;
+}
+
+[data-theme="dark-theme"] .footer-linkit a:hover {
+    color: #FF3333;
+}
+
+[data-theme="dark-theme"] .blogi-kortti {
+    background: #121814;
+}
+
+[data-theme="dark-theme"] .blogi-pvm {
+    color: #E2EBD5;
+}
+
+[data-theme="dark-theme"] .blogi-text {
+    color: #E2EBD5;
+}
+
+[data-theme="dark-theme"] .botti-alue {
+    border-top: 1px solid #222F28;
+}
+
+[data-theme="dark-theme"] .botti-nimi {
+    color: #FF3333;
+}
+
+[data-theme="dark-theme"] .viesti-teksti {
+    color: #E2EBD5;
+}
+
+[data-theme="dark-theme"] .botti-tekstikentta {
+    border-color: rgba(255, 51, 51, 0.7);
+    color: #E2EBD5;
+    background: #121814;
+}
+
+[data-theme="dark-theme"] .botti-tekstikentta:focus {
+    border-color: #FF3333;
+}
+
+[data-theme="dark-theme"] .botti-nappi {
+    background: #FF3333;
+}
+
+[data-theme="dark-theme"] .botti-nappi:hover {
+    background: rgba(255, 51, 51, 0.5);
+}
+
+[data-theme="dark-theme"] .admin-modal-overlay {
+    background-color: #0A0D0B;
+}
+
+[data-theme="dark-theme"] .admin-modal-box {
+    background: #121814;
+    border-color: #FF3333;
+}
+
+[data-theme="dark-theme"] .admin-modal-otsikko {
+    color: #FF3333;
+}
+
+[data-theme="dark-theme"] .admin-modal-peruuta {
+    border-color: #FF3333;
+    color: #FF3333;
     background: transparent;
 }
 
-[data-theme="cyberpunk"] ::-webkit-scrollbar-thumb {
-    background-color: #FF00AA;
+[data-theme="dark-theme"] ::-webkit-scrollbar-thumb {
+    background-color: #FF3333;
 }
 
-[data-theme="cyberpunk"] ::-webkit-scrollbar-thumb:hover {
-    background-color: #00FFEE;
+[data-theme="dark-theme"] ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 51, 51, 0.7);
 }
 
-[data-theme="cyberpunk"] .projekti-suodatin {
-    color: #FAFAF7;
-    border-bottom: 2px solid #FF00AA;
-    font-family: 'Share Tech Mono', serif;
+[data-theme="dark-theme"] .projekti-suodatin {
+    color: #E2EBD5;
+    border-bottom: 2px solid #FF3333;
 }
 
-[data-theme="cyberpunk"] .projekti-suodatin:hover {
-    color: #FF00AA;
+[data-theme="dark-theme"] .projekti-suodatin:hover {
+    color: #FF3333;
 }
 
-[data-theme="cyberpunk"] .projekti-suodatin.aktiivinen {
-    border: 2px solid #FF00AA;
+[data-theme="dark-theme"] .projekti-suodatin.aktiivinen {
+    border: 2px solid #FF3333;
     border-bottom-color: transparent;
-    color: #FF00AA;
+    color: #FF3333;
+    border-radius: 2px;
+}
+
+[data-theme="dark-theme"] .github-nappi {
+    background: transparent;
+    color: #FF3333;
+    border: 1px solid #FF3333;
+}
+
+[data-theme="dark-theme"] .demo-nappi {
+    background: transparent;
+    color: #FF3333;
+    border: 1px solid #FF3333;
+}
+
+[data-theme="dark-theme"] .github-nappi:hover {
+    background: #FF3333;
+    color: #E2EBD5;
+}
+
+[data-theme="dark-theme"] .demo-nappi:hover {
+    background: #FF3333;
+    color: #E2EBD5;
 }
 
 /* Media kyselyt */
@@ -841,7 +862,7 @@ body {
 /* Animaatiot */
 @keyframes pulse {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
+    50% { opacity: 0.2; }
 }
 
 @keyframes glitch {
