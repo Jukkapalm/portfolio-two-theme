@@ -1,8 +1,8 @@
 // Neuroverkon globaalit muuttujat
 // Määritelty funktion ulkopuolella jotta väriä saa vaihdettua
-// Duality buttonilla
-let node_color = 'rgba(0, 168, 120,';
-let line_color = 'rgba(0, 168, 120,';
+// Mode buttonilla
+let node_color = 'rgba(0, 119, 255,';
+let line_color = 'rgba(0, 119, 255,';
 
 // Neuroverkko - partikkelianimaatio
 function initNeuralNetwork() {
@@ -128,12 +128,12 @@ toggleBtn.forEach(btn => {
 
         document.getElementById('bottiAloitusViesti').textContent = '';
 
-        const isCyber = document.documentElement.getAttribute('data-theme') === 'cyberpunk';
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark-theme';
         const palkki = document.getElementById('teemaPalkki');
 
         // Asetetaan palkin väri teeman mukaan
         palkki.className = 'teema-palkki';
-        palkki.classList.add(isCyber ? 'default-in' : 'cyber-in');
+        palkki.classList.add(isDark ? 'default' : 'dark');
 
         // Käynnistetään teeman vaihto palkki
         requestAnimationFrame(() => {
@@ -145,27 +145,27 @@ toggleBtn.forEach(btn => {
 
             const aiTab = document.querySelector('#mobileTabs .nav-link[data-tab="ai"]');
 
-            if (isCyber) {
+            if (isDark) {
                 // Vaihdetaan default teema
                 document.documentElement.removeAttribute('data-theme');
-                node_color = 'rgba(0, 168, 120,';
-                line_color = 'rgba(0, 168, 120,';
-                toggleBtn.forEach(b => b.textContent = 'Duality');
-                document.getElementById('bottiNimi').textContent = 'AI-avustaja';
+                node_color = 'rgba(0, 119, 255,';
+                line_color = 'rgba(0, 119, 255,';
+                toggleBtn.forEach(b => b.textContent = 'Mode');
+                document.getElementById('bottiNimi').textContent = 'Automated AI-Operating System';
                 document.getElementById('bottiEmoji').textContent = '🤖';
-                document.getElementById('bottiNimiMobiili').textContent = 'AI-avustaja';
+                document.getElementById('bottiNimiMobiili').textContent = 'Automated AI-Operating System';
                 document.getElementById('bottiEmojiMobiili').textContent = '🤖';
                 if (aiTab) aiTab.textContent = 'AI';
             } else {
                 // Vaihdetaan cyberpunk teema
-                document.documentElement.setAttribute('data-theme', 'cyberpunk');
-                node_color = 'rgba(0, 255, 238,';
-                line_color = 'rgba(0, 255, 238,';
-                toggleBtn.forEach(b => b.textContent = 'Duality');
-                document.getElementById('bottiNimi').textContent = 'Fixer';
-                document.getElementById('bottiNimiMobiili').textContent = 'Fixer';
-                document.getElementById('bottiEmoji').textContent = '⚡';
-                document.getElementById('bottiEmojiMobiili').textContent = '⚡';
+                document.documentElement.setAttribute('data-theme', 'dark-theme');
+                node_color = 'rgba(255, 51, 51,';
+                line_color = 'rgba(57, 255, 20,';
+                toggleBtn.forEach(b => b.textContent = 'Mode');
+                document.getElementById('bottiNimi').textContent = 'Pathogen Outbreak Defense System';
+                document.getElementById('bottiNimiMobiili').textContent = 'Pathogen Outbreak Defense System';
+                document.getElementById('bottiEmoji').textContent = '🤖';
+                document.getElementById('bottiEmojiMobiili').textContent = '🤖';
                 document.getElementById('bottiAloitusViesti').textContent = '';
                 if (aiTab) aiTab.textContent = 'Fixer';
             }
@@ -178,12 +178,12 @@ toggleBtn.forEach(btn => {
                 palkki.className = 'teema-palkki';
         
                 // Typewriter vasta kun palkki on poistunut
-                if (isCyber) {
-                    typeWriter('bottiAloitusViesti', 'Hei! Olen AI-avustaja, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.');
-                    typeWriter('bottiAloitusViestiMobiili', 'Hei! Olen AI-avustaja, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.');
+                if (isDark) {
+                    typeWriter('bottiAloitusViesti', 'Järjestelmä alustettu. Tervetuloa A.A.O.S - ympäristöön. Järjestelmä optimoitu tarjoamaan tarkkaa tietoa Jukka Palmin ohjelmistokehityksestä, sovelluksista, teknisestä osaamisesta, portfoliosta ja koulutuksesta. Kaikki arkistot käytettävissänne. Syötä komento aloittaaksesi analyysin.');
+                    typeWriter('bottiAloitusViestiMobiili', 'Järjestelmä alustettu. Tervetuloa A.A.O.S - ympäristöön. Järjestelmä optimoitu tarjoamaan tarkkaa tietoa Jukka Palmin ohjelmistokehityksestä, sovelluksista, teknisestä osaamisesta, portfoliosta ja koulutuksesta. Kaikki arkistot käytettävissänne. Syötä komento aloittaaksesi analyysin.');
                 } else {
-                    typeWriter('bottiAloitusViesti', 'Jälleen yksi ihminen jolle pitää alkaa portfoliosta tai projekteista selittämään, minulla olisi muutakin tekemistä. Mitä haluat?', 15);
-                     typeWriter('bottiAloitusViestiMobiili', 'Jälleen yksi ihminen jolle pitää alkaa portfoliosta tai projekteista selittämään, minulla olisi muutakin tekemistä. Mitä haluat?', 15);
+                    typeWriter('bottiAloitusViesti', '[VAROITUS: ERISTYSTILA AKTIVOITU-VARAVIRTA KÄYTÖSSÄ] P.O.D.S on käynnistetty vikasietotilassa. Yhteys järjestelmän ulkopuolelle katkaistu, mutta paikallinen tietokanta Jukka Palmin projekteista, lähdekoodista ja koulutuksesta on toistaiseksi suojattu ja luettavissa. Kysy nopeasti-järjestelmä epävakaa.', 15);
+                    typeWriter('bottiAloitusViestiMobiili', 'Jälleen yksi ihminen jolle pitää alkaa portfoliosta tai projekteista selittämään, minulla olisi muutakin tekemistä. Mitä haluat?', 15);
                 }
             }, 400);
         }, 500);
@@ -401,8 +401,8 @@ function typeWriter(elementId, teksti, nopeus = 15) {
 }
 
 // Käynnistetään typewriter sivun latautuessa
-typeWriter('bottiAloitusViesti', 'Hei! Olen AI-avustaja, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.');
-typeWriter('bottiAloitusViestiMobiili', 'Hei! Olen AI-avustaja, kuinka voin auttaa? Voin vastata Jukan portfolioon ja projekteihin liittyviin kysymyksiin.');
+typeWriter('bottiAloitusViesti', 'Järjestelmä alustettu. Tervetuloa A.A.O.S - ympäristöön. Järjestelmä optimoitu tarjoamaan tarkkaa tietoa Jukka Palmin ohjelmistokehityksestä, sovelluksista, teknisestä osaamisesta, portfoliosta ja koulutuksesta. Kaikki arkistot käytettävissänne. Syötä komento aloittaaksesi analyysin.');
+typeWriter('bottiAloitusViestiMobiili', 'Järjestelmä alustettu. Tervetuloa A.A.O.S - ympäristöön. Järjestelmä optimoitu tarjoamaan tarkkaa tietoa Jukka Palmin ohjelmistokehityksestä, sovelluksista, teknisestä osaamisesta, portfoliosta ja koulutuksesta. Kaikki arkistot käytettävissänne. Syötä komento aloittaaksesi analyysin.');
 
 // RAG-tekoäly botti
 // Lähettää kysymyksen Flask backendille ja
