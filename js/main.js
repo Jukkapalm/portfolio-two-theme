@@ -155,9 +155,9 @@ toggleBtn.forEach(btn => {
                 document.getElementById('bottiEmoji').textContent = '🤖';
                 document.getElementById('bottiNimiMobiili').textContent = 'Automated AI-Operating System';
                 document.getElementById('bottiEmojiMobiili').textContent = '🤖';
-                if (aiTab) aiTab.textContent = 'AI';
+                if (aiTab) aiTab.textContent = 'A.A.O.S';
             } else {
-                // Vaihdetaan cyberpunk teema
+                // Vaihdetaan tumma teema
                 document.documentElement.setAttribute('data-theme', 'dark-theme');
                 node_color = 'rgba(255, 51, 51,';
                 line_color = 'rgba(57, 255, 20,';
@@ -167,7 +167,7 @@ toggleBtn.forEach(btn => {
                 document.getElementById('bottiEmoji').textContent = '🤖';
                 document.getElementById('bottiEmojiMobiili').textContent = '🤖';
                 document.getElementById('bottiAloitusViesti').textContent = '';
-                if (aiTab) aiTab.textContent = 'Fixer';
+                if (aiTab) aiTab.textContent = 'P.O.D.S';
             }
         }, 400);
 
@@ -183,7 +183,7 @@ toggleBtn.forEach(btn => {
                     typeWriter('bottiAloitusViestiMobiili', 'Järjestelmä alustettu. Tervetuloa A.A.O.S - ympäristöön. Järjestelmä optimoitu tarjoamaan tarkkaa tietoa Jukka Palmin ohjelmistokehityksestä, sovelluksista, teknisestä osaamisesta, portfoliosta ja koulutuksesta. Kaikki arkistot käytettävissänne. Syötä komento aloittaaksesi analyysin.');
                 } else {
                     typeWriter('bottiAloitusViesti', '[VAROITUS: ERISTYSTILA AKTIVOITU-VARAVIRTA KÄYTÖSSÄ] P.O.D.S on käynnistetty vikasietotilassa. Yhteys järjestelmän ulkopuolelle katkaistu, mutta paikallinen tietokanta Jukka Palmin projekteista, lähdekoodista ja koulutuksesta on toistaiseksi suojattu ja luettavissa. Kysy nopeasti-järjestelmä epävakaa.', 15);
-                    typeWriter('bottiAloitusViestiMobiili', 'Jälleen yksi ihminen jolle pitää alkaa portfoliosta tai projekteista selittämään, minulla olisi muutakin tekemistä. Mitä haluat?', 15);
+                    typeWriter('bottiAloitusViestiMobiili', '[VAROITUS: ERISTYSTILA AKTIVOITU-VARAVIRTA KÄYTÖSSÄ] P.O.D.S on käynnistetty vikasietotilassa. Yhteys järjestelmän ulkopuolelle katkaistu, mutta paikallinen tietokanta Jukka Palmin projekteista, lähdekoodista ja koulutuksesta on toistaiseksi suojattu ja luettavissa. Kysy nopeasti-järjestelmä epävakaa.', 15);
                 }
             }, 400);
         }, 500);
