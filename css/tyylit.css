@@ -772,7 +772,7 @@ body {
 }
 
 [data-theme="dark-theme"] .admin-modal-overlay {
-    background-color: #0A0D0B;
+    background-color: transparent;
 }
 
 [data-theme="dark-theme"] .admin-modal-box {
