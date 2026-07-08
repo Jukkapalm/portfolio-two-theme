@@ -84,6 +84,14 @@ Blogi käyttää PHP REST API:a ja MySQL-tietokantaa:
 
 ---
 
+## Tulevat päivitykset (Roadmap)
+
+Sivustoa kehitetään edelleen! Ominaisuuksia, jotka on suunniteltu lisättäväksi tulevissa päivityksissä:
+
+* [ ] **In progress kortin paivitys:** Suunnitteilla mahdollisuus päivittää In progress korttia lennosta admin paneelista. Tämä voitaisiin tallentaa tietokantaan josta aina nykyinen projekti haettaisiin ja poistettaisiin vanhat.
+
+---
+
 ## Tekijä
 
 **Jukka Palm**
